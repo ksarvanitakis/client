@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
 
+  const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001/';
   useEffect(():void => {
-    fetch('https://myprivatechefserver.herokuapp.com/')
+    fetch(baseUrl)
       .then(res => console.log(res));
   }, []);
 
