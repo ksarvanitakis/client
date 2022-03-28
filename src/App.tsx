@@ -6,7 +6,8 @@ function App() {
   const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001/';
   useEffect(() => {
     fetch(baseUrl)
-      .then(res => console.log(res));
+      .then(res => res.json())
+      .then(data => console.log(data));
   }, []);
 
   return (
