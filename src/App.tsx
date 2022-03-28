@@ -4,7 +4,7 @@ import './App.css';
 function App() {
 
   const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001/';
-  useEffect(():void => {
+  useEffect(() => {
     fetch(baseUrl)
       .then(res => console.log(res));
   }, []);
