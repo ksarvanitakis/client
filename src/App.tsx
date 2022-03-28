@@ -5,7 +5,7 @@ import './App.css';
 function App() {
 
   useEffect(():void => {
-    fetch('http://localhost:3001')
+    fetch('https://myprivatechefserver.herokuapp.com/')
       .then(res => console.log(res));
   }, []);
 
