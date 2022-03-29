@@ -6,7 +6,7 @@ function Card({ name,description,image }:Chef) {
     <div className="card--container">
       <p>{name}</p>
       <p>{description}</p>
-      <img src={image[1]}/>
+      <img src={image[0]}/>
     </div>
   );
 }
