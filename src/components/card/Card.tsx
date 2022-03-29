@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-function Card(props: { chef: Chef}) {
-  
+function Card({ name,description,image }:Chef) {
+  console.log(name)
   return (
     <div className="card--container">
-      <p>{props.chef.name}</p>
-      <p>{props.chef.description}</p>
+      <p>{name}</p>
+      <p>{description}</p>
+      <img src={image[1]}/>
     </div>
   );
 }
