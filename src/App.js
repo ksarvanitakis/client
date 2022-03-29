@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import LandingPage from './pages/landingPage/Landing'
+import ListingPage from './pages/listing/Listing';
 
 function App() {
 
-  const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001';
-
-  const [chefs, setChefs] = useState([])
-
-  useEffect(() => {
-    fetch(`${baseUrl}/chefs`)
-      .then(res => res.json())
-      .then(data => setChefs(data));
-  }, []);
-
   return (
     <div className="App">
-      {chefs.map(chef => chef.name)}
+      <Router>
+        <Routes>
+          <Route path='/' element={< LandingPage />}/>
+          <Route path='/chefs' element={< ListingPage />}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
