@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+interface CardProps {
+  chef: Chef
+}
 
-function Card({ name,description,image }:Chef) {
-  console.log(name)
+function Card({ chef } : CardProps) {
+  console.log(chef.image)
   return (
     <div className="card--container">
-      <p>{name}</p>
-      <p>{description}</p>
-      <img src={image[1]}/>
+      <p>{chef.name}</p>
+      <p>{chef.description}</p>
+      <img src={chef.image[1]}/>
     </div>
   );
 }
