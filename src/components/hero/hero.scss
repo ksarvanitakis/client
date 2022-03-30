@@ -1,0 +1,66 @@
+@use '../../scss/' as *;
+
+.hero {
+    display: flex;
+    background-color: $primaryGreen;
+    height: 60vh;
+    .hero_text-container {
+        text-align: left;
+        width: 50vw;
+        margin: auto auto;
+        position: relative;
+        z-index: 2;
+        margin-left: 15rem;
+        .hero_text-container_bg-box {
+            background-color: $lightGreen;
+            width: 150px;
+            height: 150px;
+            z-index: 1;
+            position: absolute;
+            left: -30px;
+            top: -70px;
+        }
+        .hero_text-container_title {
+            font-size: 4em;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero_text-container_desc {
+            color: $greenText;
+            width: 450px;
+            font-size: 1.20em;
+            position: relative;
+            z-index: 2;
+        }
+    } 
+
+    .hero_image-container {
+        position: relative;
+        z-index: 2;
+        margin: auto auto;
+
+        .hero_image-container_bg-box {
+            background-color: white;
+            width: 700px;
+            height: 400px;
+            position: absolute;
+            z-index: 1;
+            left: -60px;
+            top: -50px;
+
+        }
+        .hero_image-container_image {
+            background-color: $secondaryGreen;
+            width: 45rem;
+            position: relative;
+            z-index: 2;
+        }
+    }
+    
+}
+
+
+
+
+
