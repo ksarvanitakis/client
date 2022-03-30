@@ -10,7 +10,7 @@ function Card({ chef } : CardProps) {
       <Link to={`/chefs/${chef.name}`}>
       <p>{chef.name}</p>
       <p>{chef.description}</p>
-      <img src={chef.image[0]}/>
+      <img src={chef.profileImage}/>
       </Link>
       
     </div>
