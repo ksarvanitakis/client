@@ -2,5 +2,26 @@ interface Chef {
   id: number
   name: string
   description: string
-  image:string[]
+  cusine: string[]
+  price: number
+  travelDistance: number
+  email: string
+  rating: number
+  phone: number
+  description: string,
+  menu: Menu
+  address: string
+  profileImage: string
+}
+interface Menu {
+  title:  string
+  description:  string
+  time:  number
+  dishImage: string
+  ingredients:Ingre[]
+}
+interface Ingre {
+  name:string
+  quantity: number
+  unit: string
 }

@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 
-function Card({ name,description,image }:Chef) {
-  console.log(name)
+interface CardProps {
+  chef: Chef
+}
+
+function Card({ chef } : CardProps) {
   return (
     <div className="card--container">
-      <p>{name}</p>
-      <p>{description}</p>
-      <img src={image[0]}/>
+      <Link to={`/chefs/${chef.name}`}>
+      <p>{chef.name}</p>
+      <p>{chef.description}</p>
+      <img src={chef.profileImage}/>
+      </Link>
+      
     </div>
   );
 }
