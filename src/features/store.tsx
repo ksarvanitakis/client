@@ -6,7 +6,6 @@ const store = configureStore({
   reducer: {
     chefs: chefSlice
   },
-  
 });
 
 export default store;

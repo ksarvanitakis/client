@@ -16,7 +16,6 @@ const chefSlice = createSlice({
   name: 'chefs',
   initialState,
   reducers: {
-
   },
   extraReducers: (builder) => {
     builder.addCase(fetchChefs.fulfilled, (state, action) => {
