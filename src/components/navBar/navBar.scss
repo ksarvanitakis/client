@@ -1,0 +1,37 @@
+@use '../../scss/' as *;
+
+.navBar-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: $lightGreen;
+    
+    .navBar__logo {
+        height: 6rem;
+        filter: drop-shadow(0 0.1em 0.2em #6B7755);
+        transition: 0.15s;
+        
+        &:hover {
+            filter: drop-shadow(0 0.1em 0.3em #6B7755);
+        }
+    }
+    
+    .navBar__sides {
+        margin: auto;
+        font-size: small;
+        color: $greenText;
+        
+        a:link, a:visited {
+            color: $greenText;
+            
+            &:hover {
+                color: #383e2c;
+            }
+        }
+    
+    }
+
+    .navBar__sides * {
+        margin: 2em;
+        text-decoration: none;
+    }
+}
