@@ -1,7 +1,7 @@
 import './hero.scss';
 import heroImage from './../../assets/heroImage.png';
-import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import Button from '../button/Button';
 
 function Hero() {
     let navigate = useNavigate(); 
@@ -16,7 +16,7 @@ function Hero() {
                     <div className='hero_text-container_bg-box'></div>
                     <h1 className='hero_text-container_title'>Your Kitchen, Our Chef</h1>
                     <p className='hero_text-container_desc'>We bring professional chefs to your home to prepare delicious, customized meals at a fraction of the cost.</p>
-                    <button onClick={routeChange}>Booking</button>
+                    <Button btnText="Booking" handleClick={routeChange} bgColor='red' hoverColor='blue' txtColor='gray' />
                 </div>
                 <div className='hero_image-container'>
                     <div className='hero_image-container_bg-box'></div>
