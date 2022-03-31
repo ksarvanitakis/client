@@ -25,7 +25,6 @@ function MenuCard({ dish }: dishProps) {
        } else {
         setcount(count - 1)
        }
-    
     }
    
     return (
