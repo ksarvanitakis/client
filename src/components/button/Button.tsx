@@ -3,13 +3,13 @@ import { useState } from 'react';
 interface ButtonProperties {
     className: string,
     btnText: string,
-    handleClick: React.MouseEventHandler<HTMLDivElement>,
-    bgColor: string, 
+    bgColor: string,
     txtColor: string,
     hoverColor: string,
+    handleClick: React.MouseEventHandler<HTMLDivElement>,
 }
 
-export default function Button({className, btnText, handleClick, bgColor, txtColor, hoverColor}: ButtonProperties) {
+export default function Button({className, btnText, bgColor, txtColor, hoverColor, handleClick}: ButtonProperties) {
     const [hover, setHover] = useState(false);
 
     const buttonStyle: React.CSSProperties = {
@@ -18,9 +18,6 @@ export default function Button({className, btnText, handleClick, bgColor, txtCol
         margin: '1rem 0',
         color: `${txtColor}`,
         backgroundColor: `${hover ? hoverColor : bgColor}`,
-        borderRadius: '6px',
-        border: '1px solid',
-        borderColor: `${txtColor}`,
     } as unknown as React.CSSProperties;
 
     return (

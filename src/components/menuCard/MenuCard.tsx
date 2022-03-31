@@ -53,9 +53,9 @@ function MenuCard({ dish }: dishProps) {
 
                     </div>
                     <div className='button-container'>
-                        <button className='button-continer_btn' onClick={increaseHandler}>+</button>
-                        <span>{count}</span>
                         <button className='button-continer_btn' onClick={decreaseHandler} style={{border:disableMin?'1px solid grey':''}} disabled={disableMin}>-</button>
+                        <span>{count}</span>
+                        <button className='button-continer_btn' onClick={increaseHandler}>+</button>
                     </div>
                 </div>
             </section>
