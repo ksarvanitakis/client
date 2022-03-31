@@ -6,27 +6,26 @@ interface dishProps {
 
 function MenuCard({ dish }: dishProps) {
     const [displayState, setDisplayState] = useState(false)
-    const [count,setcount]=useState(0)
-    const [disableMin,setDisable]=useState(true)
+    const [count, setcount] = useState(0)
+    const [disableMin, setDisable] = useState(true)
 
-    console.log(dish)
     const dropHandler = () => {
         setDisplayState(!displayState)
     }
     const increaseHandler = () => {
-        console.log(count,'inc')
+        console.log(count, 'inc')
         setDisable(false)
-        setcount(count + 1)
+        setcount(previousCont => previousCont + 1)
     }
     const decreaseHandler = () => {
-        console.log(count,'dec')
-       if(count <= 0){
-           setDisable(true)
-       } else {
-        setcount(count - 1)
-       }
+        console.log(count, 'dec')
+        if (count <= 0) {
+            setDisable(true)
+        } else {
+            setcount(previousCont => previousCont - 1)
+        }
     }
-   
+
     return (
         <>
             <section>
@@ -52,15 +51,13 @@ function MenuCard({ dish }: dishProps) {
 
                     </div>
                     <div className='button-container'>
-                        <button className='button-continer_btn' onClick={decreaseHandler} style={{border:disableMin?'1px solid grey':''}} disabled={disableMin}>-</button>
+                        <button className='button-continer_btn' onClick={decreaseHandler} style={{ border: disableMin ? '1px solid grey' : '' }} disabled={disableMin}>-</button>
                         <span>{count}</span>
                         <button className='button-continer_btn' onClick={increaseHandler}>+</button>
                     </div>
                 </div>
             </section>
-
         </>
-
     );
 }
 
