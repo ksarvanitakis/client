@@ -2,17 +2,21 @@
 .container {
   margin: 2rem auto;
   width: 50%;
+  background-color: $primaryGreen;
 }
 .card {
   @include flexDisplay(row);
-  background-color: $primaryGreen;
   justify-content: space-between;
-  height: 200px;
+  min-height: 200px;
+  
 
 }
 .card-header {
   @include flexDisplay(column);
   padding: 20px;
+  width:60%;
+  flex-wrap: wrap;
+  text-align:left;
 }
 
 .card-header_title_span {
@@ -58,4 +62,35 @@
   left: -30px;
   top: -5px;
 
+}
+.card-header_dropDown {
+  background-color: $primaryGreen;
+  color: $greenText;
+  text-align: center;
+  padding:5px 0px;
+  cursor: pointer;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  width:30%;
+}
+
+.active, .card-header_dropDown:hover {
+  background-color: $lightGreen;
+}
+.card-header_dropDown--ingredients{
+  font-size:0.8rem
+}
+.button-container{
+  padding-bottom: 10px;
+  
+ 
+}
+.button-continer_btn{
+  border: 1px solid white;
+  padding:5px 9px;
+  border-radius:40px;
+  margin:10px;
+  background-color: $primaryGreen;
 }
