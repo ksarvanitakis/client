@@ -9,7 +9,7 @@ interface Chef {
   rating: number
   phone: number
   description: string,
-  menu: Menu
+  menu: Menu[]
   address: string
   profileImage: string
 }

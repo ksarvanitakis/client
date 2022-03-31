@@ -1,0 +1,61 @@
+@use '../../scss/' as *;
+.container {
+  margin: 2rem auto;
+  width: 50%;
+}
+.card {
+  @include flexDisplay(row);
+  background-color: $primaryGreen;
+  justify-content: space-between;
+  height: 200px;
+
+}
+.card-header {
+  @include flexDisplay(column);
+  padding: 20px;
+}
+
+.card-header_title_span {
+  color: $greenText;
+  font-size: .8rem;
+  
+}
+
+.card-header_description {
+  color: $greenText;
+}
+
+.description-container {
+  @include flexDisplay(column);
+  margin: auto 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.description-container_time {
+  color: $greenText;
+  position: relative;
+  text-align: left;
+  z-index: 2;
+}
+
+.description-container_image-container {
+
+}
+
+.description-container_image {
+  width: 200px;
+  position: relative;
+  z-index: 2;
+}
+
+.description-container_bg-box {
+  background-color: $lightGreen;
+  width: 200px;
+  height: 150px;
+  position: absolute;
+  z-index: 1;
+  left: -30px;
+  top: -5px;
+
+}
