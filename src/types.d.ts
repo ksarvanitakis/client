@@ -14,19 +14,32 @@ interface Chef {
   profileImage: string
 }
 interface Menu {
-  title:  string
-  description:  string
-  time:  number
+  title: string
+  description: string
+  time: number
   dishImage: string
-  ingredients:Ingre[]
+  ingredients: Ingre[]
 }
 interface Ingre {
-  name:string
+  name: string
   quantity: number
   unit: string
 }
-interface Order {
-  numberOfDishes: number
+interface Cart {
+  user: string
+  bookings: Booking[],
   totalPrice: number
-  hours: number
+  totalhours: number
+  checkedOut: boolean
+}
+interface Booking {
+  chef: Chef
+  date: Date
+  dishes: Dish[]
+  ime: number
+}
+interface Dish {
+  name: string
+  time: number
+  servings: number
 }

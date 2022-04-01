@@ -12,6 +12,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState: Order = {
   numberOfDishes: 0,
+  dishes: [],
   totalPrice: 0,
   hours: 0
 };
@@ -20,7 +21,9 @@ const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    
+    addDishServing(state, action) {
+      
+
   },
   // extraReducers: (builder) => {
     // builder.addCase(fetchChefs.fulfilled, (state, action) => {
