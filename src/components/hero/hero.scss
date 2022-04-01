@@ -6,7 +6,7 @@
     height: 60vh;
     .hero_text-container {
         text-align: left;
-        width: 50vw;
+        width: 55vw;
         margin: auto auto;
         position: relative;
         z-index: 2;
@@ -39,22 +39,25 @@
         position: relative;
         z-index: 2;
         margin: auto auto;
+        width: 45rem;
 
         .hero_image-container_bg-box {
             background-color: white;
-            width: 700px;
-            height: 400px;
+            width: 33rem;
+            height: 22rem;
             position: absolute;
             z-index: 1;
-            left: -60px;
-            top: -50px;
+            left: -10px;
+            top: -40px;
 
         }
         .hero_image-container_image {
             background-color: $secondaryGreen;
-            width: 45rem;
+            width: 33rem;
             position: relative;
             z-index: 2;
+            filter: drop-shadow(0 0.1em 0.5em #7f8d64);
+            
         }
     }
     

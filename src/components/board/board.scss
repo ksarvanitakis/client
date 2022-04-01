@@ -1,0 +1,10 @@
+.board-container{
+   
+    .board-container__card{
+        display: grid;
+        width: 90%;
+        grid-template-columns: 1fr 1fr;
+        justify-self: center;
+        margin: auto;
+    }
+}

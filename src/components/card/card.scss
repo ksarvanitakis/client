@@ -1,0 +1,51 @@
+@use '../../scss/' as *;
+.card-container {
+    background-color: $primaryBlue;
+    width:300px;
+    margin-top:100px;
+    padding:10px;
+    justify-self: center;
+    position: relative;
+    a {
+        text-decoration: none;
+        color:$blueText
+    }
+    .card-container__profile {
+        position: relative;
+        .card-container__profile__bg-box {
+            width:120px;
+            height:120px;
+            background-color: $secondaryBlue;
+            position: absolute;
+            top:-70px;
+            left:70px;
+    
+        }
+        .card-container__profile__img{
+            width:120px;
+            position: relative;
+            top:-60px;
+            filter: drop-shadow(0 0.1em 0.5em #6aadc0);
+            
+        }
+    }
+    .card-container__text{
+        position: relative;
+        top:-50px;
+        .card-container__text__cusine{
+            color:black;
+            font-size: 1.3em;
+        }
+    }
+    .card-container__chef-name{
+        position: absolute;
+        top:18px;
+        left:150px;
+        color:white;
+        font-size: 3em;
+        font-weight: 600;
+        filter: drop-shadow(0 0.1em 0.5em #6aadc0);
+    }
+   
+  
+}
