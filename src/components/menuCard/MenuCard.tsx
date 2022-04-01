@@ -5,9 +5,9 @@ interface dishProps {
 }
 
 function MenuCard({ dish }: dishProps) {
-    const [displayState, setDisplayState] = useState(false)
+    const [displayState, setDisplayState] = useState(false);
     const [count, setcount] = useState(0)
-    const [disableMin, setDisable] = useState(true)
+    const [disableMin, setDisable] = useState(true);
 
     const dropHandler = () => {
         setDisplayState(!displayState)
@@ -57,6 +57,7 @@ function MenuCard({ dish }: dishProps) {
                     </div>
                 </div>
             </section>
+            
         </>
     );
 }

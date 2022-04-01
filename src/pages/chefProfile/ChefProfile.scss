@@ -1,0 +1,6 @@
+@use '../../scss/' as *;
+
+.booking-container {
+  @include flexDisplay(row);
+  justify-content: space-around;
+}

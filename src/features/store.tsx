@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import chefSlice from './chefs/chefSlice';
+import orderSlice from './order/orderSlice';
 
 const store = configureStore({
   reducer: {
-    chefs: chefSlice
+    chefs: chefSlice,
+    order: orderSlice
   },
 });
 

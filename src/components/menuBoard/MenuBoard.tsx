@@ -10,9 +10,11 @@ function MenuBoard({ chef }: CardProps) {
 
     return (
         <>
-            {chef.menu.map((dish, index) => {
-                return <MenuCard key={index} dish={dish} />
-            })}
+            <div>
+                {chef.menu.map((dish, index) => {
+                    return <MenuCard key={index} dish={dish} />
+                })}
+            </div>
         </>
 
     );

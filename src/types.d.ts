@@ -25,3 +25,8 @@ interface Ingre {
   quantity: number
   unit: string
 }
+interface Order {
+  numberOfDishes: number
+  totalPrice: number
+  hours: number
+}

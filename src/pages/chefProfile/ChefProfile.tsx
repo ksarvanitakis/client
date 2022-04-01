@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import MenuBoard from '../../components/menuBoard/MenuBoard';
 import { useAppSelector } from '../../features/hooks';
+import OrderSummary from '../../components/orderSummary/OrderSummary';
+import './ChefProfile.scss';
 
 function ChefProfile() {
 
@@ -11,7 +13,11 @@ function ChefProfile() {
   return (
     <>
       <h1>Chef's Profile{chef.name}</h1>
-      <MenuBoard chef={chef} />
+      <div className='booking-container'>
+        <MenuBoard chef={chef} />
+        <OrderSummary chef={chef} />
+      </div>
+
     </>
   );
 }
