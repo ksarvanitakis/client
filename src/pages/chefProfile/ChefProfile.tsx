@@ -12,7 +12,13 @@ function ChefProfile() {
 
   return (
     <>
-      <h1>Chef's Profile{chef.name}</h1>
+      <h2>Chef's Profile</h2>
+      <h1>{chef.name}</h1>
+      <img 
+        className='card-container__profile__img'
+        src={chef.profileImage} alt='profile' 
+        style={{width:'200px', height:'200px'}}
+        />
       <div className='booking-container'>
         <MenuBoard chef={chef} />
         <OrderSummary chef={chef} />
