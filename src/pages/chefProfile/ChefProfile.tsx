@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom';
 import MenuBoard from '../../components/menuBoard/MenuBoard';
 import { useAppSelector } from '../../features/hooks';
 import OrderSummary from '../../components/orderSummary/OrderSummary';
+import Calendar from '../../components/calendar/Calendar';
+
 import './ChefProfile.scss';
 
 function ChefProfile() {
@@ -12,18 +14,20 @@ function ChefProfile() {
 
   return (
     <>
+    <div>
+        <Calendar />
+      </div>
       <h2>Chef's Profile</h2>
       <h1>{chef.name}</h1>
-      <img 
+      <img
         className='card-container__profile__img'
-        src={chef.profileImage} alt='profile' 
-        style={{width:'200px', height:'200px'}}
-        />
+        src={chef.profileImage} alt='profile'
+        style={{ width: '200px', height: '200px' }}
+      />
       <div className='booking-container'>
         <MenuBoard chef={chef} />
         <OrderSummary chef={chef} />
       </div>
-
     </>
   );
 }
