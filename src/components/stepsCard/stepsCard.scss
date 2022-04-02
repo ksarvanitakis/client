@@ -1,0 +1,24 @@
+@use '../../scss/' as *;
+.steps-container{
+    background-color: $orangeButton;
+    width :200px;
+    height: 250px;
+    padding: 20px;
+    margin:20px;
+    .steps-container_icon{
+        font-size: 4rem;
+        color:$primaryBlue;
+    }
+    .steps-container_text{
+        .steps-container_text_des {
+            color:$orangeText;
+        }
+    }
+    .color-green {
+        color:$primaryGreen;
+    }
+    .color-orange {
+        color:$primaryOrange
+    }
+}
+
