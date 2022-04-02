@@ -1,9 +1,10 @@
-@use '../../scss/' as *;
+@use '../../scss/'as *;
 
 .hero {
     display: flex;
     background-color: $primaryGreen;
     height: 60vh;
+
     .hero_text-container {
         text-align: left;
         width: 55vw;
@@ -11,6 +12,7 @@
         position: relative;
         z-index: 2;
         margin-left: 15rem;
+
         .hero_text-container_bg-box {
             background-color: $lightGreen;
             width: 150px;
@@ -20,12 +22,13 @@
             left: -30px;
             top: -70px;
         }
+
         .hero_text-container_title {
             font-size: 4em;
             position: relative;
             z-index: 2;
         }
-        
+
         .hero_text-container_desc {
             color: $greenText;
             width: 450px;
@@ -33,7 +36,7 @@
             position: relative;
             z-index: 2;
         }
-    } 
+    }
 
     .hero_image-container {
         position: relative;
@@ -49,21 +52,93 @@
             z-index: 1;
             left: -10px;
             top: -40px;
-
         }
+
         .hero_image-container_image {
             background-color: $secondaryGreen;
             width: 33rem;
             position: relative;
             z-index: 2;
             filter: drop-shadow(0 0.1em 0.5em #7f8d64);
-            
         }
     }
-    
 }
 
+@media screen and (min-width:390px) and (max-width:890px) {
+    .hero {
+        flex-direction: column-reverse;
+        width: 100%;
+        height: 94vh;
 
+        .hero_text-container {
+            width: 65%;
+            margin-top: 4em;
+            margin-left: 5rem;
+            font-size: 0.8em;
 
+            .hero_text-container_desc {
+                width: 100%;
+            }
 
+            .hero_text-container_bg-box {
+                top: -1rem;
+            }
+        }
+
+        .hero_image-container {
+            width: 100%;
+            margin-bottom: 1em;
+
+            .hero_image-container_bg-box {
+                width: 20rem;
+                height: 11rem;
+                left: 3.1rem;
+                top: -2rem;
+            }
+
+            .hero_image-container_image {
+                width: 18rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:1024px) {
+    .hero {
+        flex-direction: column-reverse;
+        width: 100%;
+        height: 80vh;
+
+        .hero_text-container {
+            width: 80%;
+            margin-top: 2em;
+            font-size: 0.9em;
+
+            .hero_text-container_desc {
+                width: 100%;
+                font-size: 1.5em;
+            }
+
+            .hero_text-container_bg-box {
+                top: -1rem;
+            }
+        }
+
+        .hero_image-container {
+            width: 60%;
+            margin: 5rem 3rem 3rem 3rem;
+
+            .hero_image-container_bg-box {
+                width: 30rem;
+                height: 18rem;
+                left: 4rem;
+                top: -2rem;
+            }
+
+            .hero_image-container_image {
+                width: 30rem;
+            }
+        }
+    }
+}
 
