@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useAppSelector } from '../../features/hooks';
 import './MenuCard.scss';
 interface dishProps {
     dish: Menu
 }
 
 function MenuCard({ dish }: dishProps) {
+    const cart = useAppSelector(state => state.cart);
+
     const [displayState, setDisplayState] = useState(false);
     const [count, setcount] = useState(0)
     const [disableMin, setDisable] = useState(true);
@@ -16,6 +19,7 @@ function MenuCard({ dish }: dishProps) {
         console.log(count, 'inc')
         setDisable(false)
         setcount(previousCont => previousCont + 1)
+        //dispatch here
     }
     const decreaseHandler = () => {
         console.log(count, 'dec')
@@ -24,6 +28,7 @@ function MenuCard({ dish }: dishProps) {
         } else {
             setcount(previousCont => previousCont - 1)
         }
+        // dispatch here
     }
 
     return (
@@ -57,7 +62,8 @@ function MenuCard({ dish }: dishProps) {
                     </div>
                 </div>
             </section>
-            
+            <span>hello {cart.totalPrice} {cart.chef?.name}</span>
+
         </>
     );
 }

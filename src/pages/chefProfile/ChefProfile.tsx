@@ -14,11 +14,11 @@ function ChefProfile() {
     <>
       <h2>Chef's Profile</h2>
       <h1>{chef.name}</h1>
-      <img 
+      <img
         className='card-container__profile__img'
-        src={chef.profileImage} alt='profile' 
-        style={{width:'200px', height:'200px'}}
-        />
+        src={chef.profileImage} alt='profile'
+        style={{ width: '200px', height: '200px' }}
+      />
       <div className='booking-container'>
         <MenuBoard chef={chef} />
         <OrderSummary chef={chef} />

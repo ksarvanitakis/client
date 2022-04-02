@@ -27,19 +27,13 @@ interface Ingre {
 }
 interface Cart {
   user: string
-  bookings: Booking[],
+  chef?: Chef
+  booking?: Booking
   totalPrice: number
   totalhours: number
-  checkedOut: boolean
+  dishes: Menu[]
 }
 interface Booking {
-  chef: Chef
   date: Date
-  dishes: Dish[]
-  ime: number
-}
-interface Dish {
-  name: string
-  time: number
-  servings: number
+  startTime: number
 }
