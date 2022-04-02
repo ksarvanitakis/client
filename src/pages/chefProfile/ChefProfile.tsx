@@ -3,8 +3,10 @@ import MenuBoard from '../../components/menuBoard/MenuBoard';
 import { useAppSelector } from '../../features/hooks';
 import OrderSummary from '../../components/orderSummary/OrderSummary';
 import Calendar from '../../components/calendar/Calendar';
+import Button from '../../components/button/Button'
 
 import './ChefProfile.scss';
+
 
 function ChefProfile() {
 
@@ -22,11 +24,11 @@ function ChefProfile() {
         src={chef.profileImage} alt='profile'
         style={{ width: '200px', height: '200px' }}
       />
-      <div className='card-container_calendar'>
-        <Calendar />
-      </div>
       <div className='booking-container'>
         <MenuBoard chef={chef} />
+        <div className='booking-container_cal'>
+          <Calendar />
+        </div>
         <OrderSummary chef={chef} />
       </div>
     </>
