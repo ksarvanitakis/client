@@ -14,9 +14,7 @@ function ChefProfile() {
 
   return (
     <>
-    <div>
-        <Calendar />
-      </div>
+
       <h2>Chef's Profile</h2>
       <h1>{chef.name}</h1>
       <img
@@ -24,6 +22,9 @@ function ChefProfile() {
         src={chef.profileImage} alt='profile'
         style={{ width: '200px', height: '200px' }}
       />
+      <div className='card-container_calendar'>
+        <Calendar />
+      </div>
       <div className='booking-container'>
         <MenuBoard chef={chef} />
         <OrderSummary chef={chef} />
