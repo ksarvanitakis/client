@@ -1,12 +1,17 @@
 import { useState } from 'react';
 import { useAppSelector } from '../../features/hooks';
+import { useDispatch } from 'react-redux';
 import './MenuCard.scss';
+import { updateDish } from '../../features/cart/cartSlice';
+
 interface dishProps {
     dish: Menu
+    id:number
 }
 
-function MenuCard({ dish }: dishProps) {
+function MenuCard({ dish, id }: dishProps) {
     const cart = useAppSelector(state => state.cart);
+    const dispatch = useDispatch()
 
     const [displayState, setDisplayState] = useState(false);
     const [count, setcount] = useState(0)
@@ -15,19 +20,29 @@ function MenuCard({ dish }: dishProps) {
     const dropHandler = () => {
         setDisplayState(!displayState)
     }
-    const increaseHandler = () => {
-        console.log(count, 'inc')
+    const increaseHandler = (title:string, time:number) => {
+        // const index = dish.indexOf(title)
         setDisable(false)
         setcount(previousCont => previousCont + 1)
-        //dispatch here
+        const dish = {
+            serving:count,
+            name: title,
+            id:id
+        }
+        dispatch(updateDish(dish))
     }
-    const decreaseHandler = () => {
-        console.log(count, 'dec')
+    const decreaseHandler = (title: string, time:number) => {
         if (count <= 0) {
             setDisable(true)
         } else {
             setcount(previousCont => previousCont - 1)
         }
+        const dish = {
+            serving:count,
+            name: title,
+            id:id
+        }
+        dispatch(updateDish(dish))
         // dispatch here
     }
 
@@ -50,15 +65,15 @@ function MenuCard({ dish }: dishProps) {
                             <p className='description-container_time'>Time: {dish.time} min</p>
                             <div className='description-container_image-container'>
                                 <div className='description-container_bg-box'></div>
-                                <img className='description-container_image' src={dish.dishImage}></img>
+                                <img className='description-container_image' src={dish.dishImage} alt='dish'></img>
                             </div>
                         </div>
 
                     </div>
                     <div className='button-container'>
-                        <button className='button-continer_btn' onClick={decreaseHandler} style={{ border: disableMin ? '1px solid grey' : '' }} disabled={disableMin}>-</button>
+                        <button className='button-continer_btn' onClick={()=> decreaseHandler(dish.title, dish.time)} style={{ border: disableMin ? '1px solid grey' : '' }} disabled={disableMin}>-</button>
                         <span>{count}</span>
-                        <button className='button-continer_btn' onClick={increaseHandler}>+</button>
+                        <button className='button-continer_btn' onClick={()=> increaseHandler(dish.title, dish.time)}>+</button>
                     </div>
                 </div>
             </section>

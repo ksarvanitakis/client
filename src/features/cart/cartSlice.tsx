@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
+import e from "express";
 
 // const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001';
 
@@ -30,10 +31,15 @@ const cartSlice = createSlice({
     setChef(state, action) {
       console.log('action', action)
       state.chef = action.payload
-      console.log('cart setChef', current(state))
     },
-    addDishe(state, action) {
-
+    updateDish(state, action) {
+      
+      const addedDish = state.dishes.find(d => d.id === action.payload.id)
+      if (addedDish){
+        state.dishes.splice(action.payload.id, 1, action.payload)
+      }else state.dishes.push(action.payload)
+      console.log('dish cart',current(state))
+      
     },
     deleteDish(state, action) {
 
@@ -41,5 +47,5 @@ const cartSlice = createSlice({
   }
 })
 
-export const { createEmptyCart, setChef } = cartSlice.actions;
+export const { createEmptyCart, setChef, updateDish } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -9,7 +9,7 @@ function MenuBoard({ chef }: CardProps) {
         <>
             <div style={{ backgroundColor: '#dbeeb7', width: '40em' }}>
                 {chef.menu.map((dish, index) => {
-                    return <MenuCard key={index} dish={dish} />
+                    return <MenuCard key={index} dish={dish} id={index} />
                 })}
             </div>
         </>

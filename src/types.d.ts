@@ -32,9 +32,14 @@ interface Cart {
   booking?: Booking
   totalPrice: number
   totalhours: number
-  dishes: Menu[]
+  dishes: Dishe[]
 }
 interface Booking {
   date: Date
   startTime: number
 }
+ interface Dishe {
+   serving:number
+   name:string
+   id:number
+ }
