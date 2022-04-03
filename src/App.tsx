@@ -7,6 +7,7 @@ import ListingPage from './pages/listing/Listing';
 import About from './pages/about/About';
 import Faq from './pages/faq/Faq';
 import HowItWorks from './pages/howItWorks/HowItWorks';
+import BookingPage from './pages/bookingPage/BookingPage';
 
 function App() {
 
@@ -18,9 +19,10 @@ function App() {
           <Route path='/' element={< LandingPage />}/>
           <Route path='/chefs' element={< ListingPage />}/>
           <Route path='/chefs/:name' element={< ChefProfile />}/>
-          <Route path='/about' element={<About />} />
-          <Route path='/faq' element={<Faq/>} />
-          <Route path='/howitworks' element={<HowItWorks/>} />
+          <Route path='/about' element={<About />}/>
+          <Route path='/faq' element={<Faq/>}/>
+          <Route path='/howitworks' element={<HowItWorks/>}/>
+          <Route path='/chefs/bookingpage' element={<BookingPage/>}/>
         </Routes>
       </Router>
     </div>

@@ -3,8 +3,6 @@ import MenuBoard from '../../components/menuBoard/MenuBoard';
 import { useAppSelector } from '../../features/hooks';
 import OrderSummary from '../../components/orderSummary/OrderSummary';
 import Calendar from '../../components/calendar/Calendar';
-import Button from '../../components/button/Button'
-
 import './ChefProfile.scss';
 
 
