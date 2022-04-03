@@ -12,6 +12,7 @@ interface Chef {
   menu: Menu[]
   address: string
   profileImage: string
+  heroImages: string[]
 }
 interface Menu {
   title:  string
