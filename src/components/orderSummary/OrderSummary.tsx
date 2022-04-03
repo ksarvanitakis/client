@@ -12,7 +12,7 @@ function OrderSummary({ chef }: CardProps) {
 
   let navigate = useNavigate();
   const routeChange = () => {
-      let path = `bookingPage`;
+      let path = `/chefs/bookingpage`;
       navigate(path);
   }
 
