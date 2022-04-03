@@ -14,24 +14,24 @@ function OrderSummary({ chef }: CardProps) {
 
   let navigate = useNavigate();
   const routeChange = () => {
-      let path = `/chefs/bookingpage`;
-      navigate(path);
+    let path = `/chefs/bookingpage`;
+    navigate(path);
   }
 
   return (
     <>
       <section style={{ border: '2px solid gray', width: '15rem', height: '20rem' }}>
         <p>Number of dishes: {cart.dishes.length} </p>
-        {cart.dishes.map((el:Dishe)=>{
+        {cart.dishes.map((el: Dishe) => {
           return <div>
             <p>{el.serving}</p>
             <p>{el.name}</p>
           </div>
-  })}
+        })}
         <p>Total time: </p>
       </section>
       <div>
-        <Button 
+        <Button
           className="Btn"
           btnText="Checkout"
           handleClick={routeChange}
