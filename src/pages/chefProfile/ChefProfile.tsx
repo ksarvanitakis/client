@@ -5,6 +5,7 @@ import OrderSummary from '../../components/orderSummary/OrderSummary';
 import Calendar from '../../components/calendar/Calendar';
 
 import './ChefProfile.scss';
+import ProfileHero from '../../components/profileHero/ProfileHero';
 
 function ChefProfile() {
 
@@ -14,7 +15,7 @@ function ChefProfile() {
 
   return (
     <>
-
+      <ProfileHero chef={chef} />
       <h2>Chef's Profile</h2>
       <h1>{chef.name}</h1>
       <img
