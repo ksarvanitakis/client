@@ -29,7 +29,7 @@ function NavBar() {
                 <Button
                     className="Hero-Btn"
                     btnText="Find you Chef" 
-                    bgColor='#f9fcf2' 
+                    bgColor='#f9fcf2'    
                     hoverColor='#cce39f' 
                     txtColor='#6B7755'
                     handleClick={() => routeChange('/chefs')} />
