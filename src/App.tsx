@@ -9,12 +9,31 @@ import Faq from './pages/faq/Faq';
 import HowItWorks from './pages/howItWorks/HowItWorks';
 import CheckoutPage from './pages/checkoutPage/checkoutPage';
 import BurguerMenu from './components/burguerMenu/BurguerMenu';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [screenSize, getDimension] = useState({
+    dynamicWidth: window.innerWidth,
+    dynamicHeight: window.innerHeight
+  });
+
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth,
+      dynamicHeight: window.innerHeight
+    })
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    return(() => {
+        window.removeEventListener('resize', setDimension);
+    })
+  }, [screenSize])
   return (
     <div className="App">
       <Router>
-        {window.innerWidth > 400 ? <NavBar /> : <BurguerMenu />}
+        {screenSize.dynamicWidth > 400 ? <NavBar /> : <BurguerMenu />}
 
         <Routes>
           <Route path='/' element={< LandingPage />}/>

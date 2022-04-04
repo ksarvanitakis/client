@@ -51,6 +51,19 @@ const styles = {
     background: 'rgba(0, 0, 0, 0.3)'
   }
 }
+
+const stylesImg = {
+  width: '100px',
+  paddingTop: '1em'
+}
+
+const stylesDiv = {
+  display: 'flex',
+  flexDirection: 'column' as 'column',
+  alignItems: 'center',
+  background: '#dbeeb7'
+}
+
 function BurguerMenu() {
   let navigate = useNavigate();
 
@@ -67,18 +80,21 @@ function BurguerMenu() {
           <Link to='/howitworks' >How it works</Link>
           <Link to='/contact'>Contact</Link>
         </Menu>
-        <img
-          onClick={() => routeChange('/')}
-          className='navBar__logo'
-          src={logo} alt="Logo" />
-        <Button
-          className="Hero-Btn"
-          btnText="Find you Chef"
-          bgColor='#f9fcf2'
-          hoverColor='#cce39f'
-          txtColor='#6B7755'
-          disabled={false}
-          handleClick={() => routeChange('/chefs')} />
+        <div style={stylesDiv}>
+          <img
+            onClick={() => routeChange('/')}
+            className='navBar__logo'
+            src={logo} alt="Logo" 
+            style={stylesImg}/>
+          <Button
+            className="Hero-Btn"
+            btnText="Find you Chef"
+            bgColor='#f9fcf2'
+            hoverColor='#cce39f'
+            txtColor='#6B7755'
+            disabled={false}
+            handleClick={() => routeChange('/chefs')} />
+        </div>
   
     </>
   );
