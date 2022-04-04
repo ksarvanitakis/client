@@ -33,6 +33,7 @@ interface Cart {
   totalPrice: number
   totalhours: number
   dishes: Dishe[]
+  date:string
 }
 interface Booking {
   date: Date

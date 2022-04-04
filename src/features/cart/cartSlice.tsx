@@ -17,7 +17,8 @@ const initialState: Cart = {
   booking: undefined,
   totalPrice: 0,
   totalhours: 0,
-  dishes: []
+  dishes: [],
+  date:new Date().toLocaleDateString()
 };
 
 const cartSlice = createSlice({
@@ -63,11 +64,11 @@ const cartSlice = createSlice({
       console.log('dish cart',current(state))
       
     },
-    deleteDish(state, action) {
-
+    setSelectedDate(state, action) {
+     state.date = action.payload
     }
   }
 })
 
-export const { createEmptyCart, setChef, updateDish } = cartSlice.actions;
+export const { createEmptyCart, setChef, updateDish,setSelectedDate } = cartSlice.actions;
 export default cartSlice.reducer;

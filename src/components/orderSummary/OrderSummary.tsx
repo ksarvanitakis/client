@@ -42,6 +42,7 @@ function OrderSummary({ chef }: CardProps) {
         })}
         <p>Total time:{convertMinToHr(cart.totalhours)} </p>
         {ableCheckoutBtn(cart.totalhours)?<p>* You can book chefs for min 5hr and max 6hr</p>:''}
+        <p>{cart.date}</p>
       </section>
       <div>
         <Button
