@@ -1,5 +1,5 @@
 interface Chef {
-  id: number
+  _id: number
   name: string
   description: string
   cusine: string[]
@@ -13,6 +13,7 @@ interface Chef {
   address: string
   profileImage: string
   heroImages: string[]
+  bookedDates: string[]
 }
 interface Menu {
   title: string

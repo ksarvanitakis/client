@@ -12,7 +12,7 @@ function ChefProfile() {
   const chefs = useAppSelector(state => state.chefs)
   const { name } = useParams();
   const chef = chefs.find(element => element.name === name) as Chef
-
+  console.log(chef)
   return (
     <>
       <ProfileHero chef={chef} />
@@ -26,7 +26,7 @@ function ChefProfile() {
       <div className='booking-container'>
         <MenuBoard chef={chef} />
         <div className='booking-container_cal'>
-          <Calendar />
+          <Calendar chef={chef}/>
         </div>
         <OrderSummary chef={chef} />
       </div>
