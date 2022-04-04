@@ -1,54 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
+import { addDays } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
 
 
-// const unavailableDates = ["", "2022-04-07", "2022-04-20"];
 
-
-
-// const Calendar = () => {
-//   const [startDate, setStartDate] = useState(new Date());
-//   const [endDate, setEndDate] = useState(null);
-//   const onChange = (dates) => {
-//     const [start, end] = dates;
-//     setStartDate(start);
-//     setEndDate(end);
-//   };
-//   return (
-//     <DatePicker
-//       selected={startDate}
-//       onChange={onChange}
-//       startDate={startDate}
-//       endDate={endDate}
-//       selectsRange
-//       inline
-//     />
-//   );
-  
+const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [bookedDates, setBookedDates] = useState([])
-
-  const bookedDates = (date) => {
-    const exclDates = date !== new Date().toString() //(2*24*60*60*1000)
-    console.log(exclDates)
-    return ( exclDates)
-  }
+  const [bookedDates, setBookedDates] = useState<any>([]);
 
   return (
-    <DatePicker selected={selectedDate}
-      filterDate = {bookedDates}
-      onChange={(date) => setSelectedDate(date)}
-      minDate={new Date()}
-      // maxDate={}
-      // isClearable
-      showYearDropdown
-      scrollableMonthYearDropdown
-      // showTimeSelect
-      // selectsStart
-      // selectsEnd
-      dateFormat="yyyy MM dd"
-      inline
-    />
-
+    <>
+      <DatePicker selected={selectedDate}
+        onChange={(date: Date) => setSelectedDate(date)}
+        minDate={new Date()}
+        excludeDates={bookedDates}
+        showYearDropdown
+        scrollableMonthYearDropdown
+        dateFormat="yyyy MM dd"
+        inline
+      />
+      <button onClick={e => {
+        const bookedDatesArray = bookedDates.concat(selectedDate)
+        console.log(bookedDatesArray)
+        setBookedDates(bookedDatesArray)
+      }
+      }>Book date</button>
+    </>
+  );
+}
 export default Calendar;
