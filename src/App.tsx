@@ -8,13 +8,14 @@ import About from './pages/about/About';
 import Faq from './pages/faq/Faq';
 import HowItWorks from './pages/howItWorks/HowItWorks';
 import BookingPage from './pages/bookingPage/BookingPage';
+import BurguerMenu from './components/burguerMenu/BurguerMenu';
 
 function App() {
-
   return (
     <div className="App">
       <Router>
-        <NavBar />
+        {window.innerWidth > 400 ? <NavBar /> : <BurguerMenu />}
+
         <Routes>
           <Route path='/' element={< LandingPage />}/>
           <Route path='/chefs' element={< ListingPage />}/>

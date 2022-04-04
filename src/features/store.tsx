@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import chefSlice from './chefs/chefSlice';
-import orderSlice from './order/orderSlice';
+import cartSlice from './cart/cartSlice';
 
 const store = configureStore({
   reducer: {
     chefs: chefSlice,
-    order: orderSlice
+    cart: cartSlice
   },
 });
 
