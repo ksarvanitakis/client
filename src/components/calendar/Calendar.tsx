@@ -1,37 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import DatePicker from "react-datepicker";
-import { addDays } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
-import  {setSelectedDate} from '../../features/cart/cartSlice'
+import { setSelectedDate } from '../../features/cart/cartSlice'
 import { useDispatch } from "react-redux";
-import { useAppSelector } from "../../features/hooks";
+const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001';
 
+interface CalendarProps {
+  chef: Chef
+}
 
+async function postBooking(name: string, data = {}) {
+  const response = await fetch(`${baseUrl}/chefs/${name}`, {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+  return response.json();
+}
 
-const Calendar = () => {
+const Calendar = ({ chef }: CalendarProps) => {
   const [selectedDate, setSelected] = useState(new Date());
-  const selectedDate9 = useAppSelector(state=>state.cart.date)
-  const [bookedDates, setBookedDates] = useState<any>([]);
   const dispatch = useDispatch();
-  console.log(selectedDate9)
+  const formattedBookedDates = chef.bookedDates.map(date => {
+    return new Date(date)
+  })
   return (
     <>
       <DatePicker selected={selectedDate}
-        onChange={(date: Date) =>{ 
+        onChange={(date: Date) => {
           setSelected(date)
           dispatch(setSelectedDate(date.toLocaleDateString()))
         }}
         minDate={new Date()}
-        excludeDates={bookedDates}
+        excludeDates={formattedBookedDates}
         showYearDropdown
         scrollableMonthYearDropdown
         dateFormat="yyyy MM dd"
         inline
       />
       <button onClick={e => {
-        const bookedDatesArray = bookedDates.concat(selectedDate)
-        console.log(bookedDatesArray)
-        setBookedDates(bookedDatesArray)
+        postBooking(chef.name, { selectedDate })
       }
       }>Book date</button>
     </>
