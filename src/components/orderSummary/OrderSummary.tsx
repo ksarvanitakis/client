@@ -3,6 +3,8 @@ import './OrderSummary.scss';
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from '../../features/hooks';
 import Button from '../button/Button';
+import { useDispatch } from 'react-redux';
+import { updatePrice } from '../../features/cart/cartSlice';
 
 
 interface CardProps {
@@ -10,24 +12,33 @@ interface CardProps {
 }
 
 function OrderSummary({ chef }: CardProps) {
+
+  console.log(chef.price);
   const cart = useAppSelector(state => state.cart);
+  const dispatch = useDispatch()
 
   let navigate = useNavigate();
   const routeChange = () => {
     let path = `/chefs/bookingpage`;
     navigate(path);
   }
-  const convertMinToHr = (totalMinutes:number) => {
+  const convertMinToHr = (totalMinutes: number) => {
     const minutes = totalMinutes % 60;
     const hours = Math.floor(totalMinutes / 60);
     return `${hours}hr : ${minutes}min`
   }
-  const ableCheckoutBtn = (time:number) =>{
-    console.log(time,'disable btn')
-   if(time>=300 && time<=480){
-     return false
-   }
-   else return true
+  const ableCheckoutBtn = (time: number) => {
+    console.log(time, 'disable btn')
+    if (time >= 300 && time <= 480) {
+      return false
+    }
+    else return true
+  }
+
+  const setTotalPrice = (totalMinutes: number) => {
+    const totalPrice = (totalMinutes / 60) * chef.price;
+    dispatch(updatePrice(totalPrice));
+    return totalPrice;
   }
 
   return (
@@ -41,8 +52,9 @@ function OrderSummary({ chef }: CardProps) {
           </div>
         })}
         <p>Total time:{convertMinToHr(cart.totalhours)} </p>
-        {ableCheckoutBtn(cart.totalhours)?<p>* You can book chefs for min 5hr and max 6hr</p>:''}
+        {ableCheckoutBtn(cart.totalhours) ? <p>* You can book chefs for min 5hr and max 6hr</p> : ''}
         <p>{cart.date}</p>
+        <p>Total Price: {setTotalPrice(cart.totalhours)}</p>
       </section>
       <div>
         <Button

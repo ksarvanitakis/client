@@ -6,7 +6,7 @@ import { updateDish } from '../../features/cart/cartSlice';
 
 interface dishProps {
     dish: Menu
-    id:number
+    id: number
 }
 
 function MenuCard({ dish, id }: dishProps) {
@@ -20,32 +20,33 @@ function MenuCard({ dish, id }: dishProps) {
     const dropHandler = () => {
         setDisplayState(!displayState)
     }
-    const increaseHandler = (title:string, time:number) => {
-        // const index = dish.indexOf(title)
+    const increaseHandler = (title: string, time: number, ingredients: Ingre[]) => {
         setDisable(false)
         setcount(previousCont => previousCont + 1)
         const dish = {
-            serving:count+1,
+            serving: count + 1,
             name: title,
-            id:id,
-            time:time
+            id: id,
+            time: time,
+            ingredients: ingredients
         }
+        console.log('chef price', cart.chef?.price);
         dispatch(updateDish(dish))
     }
-    const decreaseHandler = (title: string, time:number) => {
+    const decreaseHandler = (title: string, time: number, ingredients: Ingre[]) => {
         if (count <= 0) {
             setDisable(true)
         } else {
-            setcount(previousCont => previousCont - 1)
+            setcount(previousCont => previousCont - 1);
         }
         const dish = {
-            serving:count-1,
+            serving: count - 1,
             name: title,
-            id:id,
-            time:time
+            id: id,
+            time: time,
+            ingredients: ingredients
         }
-        dispatch(updateDish(dish))
-        // dispatch here
+        dispatch(updateDish(dish));
     }
 
     return (
@@ -73,14 +74,12 @@ function MenuCard({ dish, id }: dishProps) {
 
                     </div>
                     <div className='button-container'>
-                        <button className='button-continer_btn' onClick={()=> decreaseHandler(dish.title, dish.time)} style={{ border: disableMin ? '1px solid grey' : '' }} disabled={disableMin}>-</button>
+                        <button className='button-continer_btn' onClick={() => decreaseHandler(dish.title, dish.time, dish.ingredients)} style={{ border: disableMin ? '1px solid grey' : '' }} disabled={disableMin}>-</button>
                         <span>{count}</span>
-                        <button className='button-continer_btn' onClick={()=> increaseHandler(dish.title, dish.time)}>+</button>
+                        <button className='button-continer_btn' onClick={() => increaseHandler(dish.title, dish.time, dish.ingredients)}>+</button>
                     </div>
                 </div>
             </section>
-            <span>hello {cart.totalPrice} {cart.chef?.name}</span>
-
         </>
     );
 }
