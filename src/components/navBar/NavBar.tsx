@@ -32,6 +32,7 @@ function NavBar() {
                     bgColor='#f9fcf2'    
                     hoverColor='#cce39f' 
                     txtColor='#6B7755'
+                    disabled={false}
                     handleClick={() => routeChange('/chefs')} />
             </span>
 

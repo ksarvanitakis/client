@@ -25,9 +25,10 @@ function MenuCard({ dish, id }: dishProps) {
         setDisable(false)
         setcount(previousCont => previousCont + 1)
         const dish = {
-            serving:count,
+            serving:count+1,
             name: title,
-            id:id
+            id:id,
+            time:time
         }
         dispatch(updateDish(dish))
     }
@@ -38,9 +39,10 @@ function MenuCard({ dish, id }: dishProps) {
             setcount(previousCont => previousCont - 1)
         }
         const dish = {
-            serving:count,
+            serving:count-1,
             name: title,
-            id:id
+            id:id,
+            time:time
         }
         dispatch(updateDish(dish))
         // dispatch here
