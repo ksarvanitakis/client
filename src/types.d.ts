@@ -42,4 +42,5 @@ interface Booking {
    serving:number
    name:string
    id:number
+   time:number
  }

@@ -22,6 +22,7 @@ function Hero() {
                         handleClick={routeChange}
                         bgColor='#f9fcf2'
                         hoverColor='#dbeeb7'
+                        disabled={false}
                         txtColor='#6B7755' />
                 </div>
                 <div className='hero_image-container'>
