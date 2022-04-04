@@ -17,8 +17,8 @@ function MenuCard({ dish }: dishProps) {
         setDisable(false)
         setcount(previousCont => previousCont + 1)
     }
-    const decreaseHandler = () => {
-        console.log(count, 'dec')
+    const decreaseHandler = (title:number) => {
+        console.log(title, 'dec')
         if (count <= 0) {
             setDisable(true)
         } else {
@@ -51,7 +51,7 @@ function MenuCard({ dish }: dishProps) {
 
                     </div>
                     <div className='button-container'>
-                        <button className='button-continer_btn' onClick={decreaseHandler} style={{ border: disableMin ? '1px solid grey' : '' }} disabled={disableMin}>-</button>
+                        <button className='button-continer_btn' onClick={()=>decreaseHandler(dish.time)} style={{ border: disableMin ? '1px solid grey' : '' }} disabled={disableMin}>-</button>
                         <span>{count}</span>
                         <button className='button-continer_btn' onClick={increaseHandler}>+</button>
                     </div>
