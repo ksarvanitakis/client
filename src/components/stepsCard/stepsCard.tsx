@@ -22,7 +22,6 @@ function StepsCard({step,description,id}:StepsProps) {
     return (
         <>
             <div className='steps-container'>
-               
                 {iconDisplaying()}
                 <div className='steps-container_text'>
                     <h1>{step}</h1>
