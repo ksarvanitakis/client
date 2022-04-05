@@ -1,0 +1,20 @@
+@use '../../scss/' as *;
+
+.form-container {
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -10rem;
+    margin-top: -10rem;
+
+    input {
+        display: block;
+        font-size: large;
+        padding: 0.8em 0;
+        width: 20rem;
+        border: none;
+        border-bottom: 1px solid #6B7755;
+    }
+}

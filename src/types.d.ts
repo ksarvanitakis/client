@@ -1,3 +1,17 @@
+interface User {
+  _id: string
+  username: string
+  bookings?: Booking2[]
+}
+
+interface Booking2 {
+  chef: Chef
+  totalPrice: number
+  totalhours: number
+  dishes: Dishe[]
+  date:string
+}
+
 interface Chef {
   _id: number
   name: string
