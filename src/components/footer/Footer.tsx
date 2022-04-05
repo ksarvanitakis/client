@@ -1,45 +1,32 @@
 import './footer.scss'
-import { BsInstagram } from 'react-icons/bs'
-import { BsPinterest } from 'react-icons/bs';
-import { BsTwitter } from 'react-icons/bs';
-import { BsFacebook } from 'react-icons/bs';
+import { FaInstagramSquare } from 'react-icons/fa'
+import { ImPinterest } from 'react-icons/im';
+import { AiFillTwitterCircle } from 'react-icons/ai';
+import { MdOutlineFacebook } from 'react-icons/md';
 
-interface FooterProps {
-    footer: string,
-    description: string,
-    id: number
-}
 
-function Footer({ footer, description, id }: FooterProps) {
-    if (id === 0) {
-        return <a className='footer-container_icon'><BsInstagram /></a>
-    }
-    if (id === 1) {
-        return <a className='footer-container_icon'><BsPinterest /></a>
-    }
-    if (id === 2) {
-        return <a className='footer-container_icon'><BsTwitter /></a>
-    }
-    if (id === 3) {
-        return <a className='footer-container_icon'><BsFacebook /></a>
-    }
-}
-return (
-    <>
+function Footer() {
+
+    return (
+
         <div className='footer-container'>
-
-            <a className='footer-container_icon'><BsInstagram /></a>
-            <div className='footer-container_text'>
-                <a href=''>Becomne a chef</a>
-                <a href=''>Book now</a>
+            <div className='footer-container_img'>
+                <a className='footer-container_icon'><FaInstagramSquare size={30} /></a>
+                <a className='footer-container_icon'><ImPinterest size={30} /></a>
+                <a className='footer-container_icon'><AiFillTwitterCircle size={30} /></a>
+                <a className='footer-container_icon'><MdOutlineFacebook size={30} /></a>
             </div>
-            <div >
-                <p className='footer-container_text_des'>
-                    © 2022 A Perfect Plate. All rights reserved. Site by The Alien Alliance.</p>
+            <div className='footer-container_text'>
+                <a href='' className='footer-container_text-link'>BECOME A CHEF</a>
+                <a href='' className='footer-container_text-link'>BOOK NOW</a>
+            </div>
+            <div className='footer-container_text_tag'>
+                <span className='footer-container_text_des'>
+                    © 2022 A Perfect Plate. All rights reserved. Site by The Alien Alliance.</span>
             </div>
         </div>
-    </>
-);
+
+    );
 }
 
 export default Footer;

@@ -27,10 +27,9 @@ function App() {
           <Route path='/howitworks' element={<HowItWorks />} />
           <Route path='/chefs/bookingpage' element={<CheckoutPage />} />
         </Routes>
+        <Footer />
       </Router>
-      <>
-      <Footer footer={'string'} description={'string'} id={0} />
-      </>
+
     </div>
   );
 }
