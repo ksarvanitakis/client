@@ -28,7 +28,7 @@ function NavBar() {
                 <Link to='/contact'>Contact</Link>
                 <Button
                     className="Hero-Btn"
-                    btnText="Find you Chef" 
+                    btnText="Find your Chef" 
                     bgColor='#f9fcf2'    
                     hoverColor='#cce39f' 
                     txtColor='#6B7755'
