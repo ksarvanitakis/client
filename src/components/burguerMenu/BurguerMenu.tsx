@@ -73,7 +73,7 @@ function BurguerMenu() {
           src={logo} alt="Logo" />
         <Button
           className="Hero-Btn"
-          btnText="Find you Chef"
+          btnText="Find your Chef"
           bgColor='#f9fcf2'
           hoverColor='#cce39f'
           txtColor='#6B7755'
