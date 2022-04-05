@@ -1,3 +1,4 @@
+import { isValidDateValue } from '@testing-library/user-event/dist/utils';
 import { useAppSelector } from '../../features/hooks';
 
 function CheckoutPage() {
@@ -11,7 +12,20 @@ function CheckoutPage() {
         shoppingList.push({name:e.name,quantity :e.quantity*el.serving,unit:e.unit})
        })
     })
-   console.log(cart.dishes)
+
+    const dishes = shoppingList.reduce((res: Ingre[], value) => {
+        const index = res.findIndex(v => v.name === value.name)
+        if (index === -1) {
+            res.push(value)
+        } else {
+            const newIngre = {...value, quantity: res[index].quantity + value.quantity }
+            res[index] = newIngre;
+        }
+        return res;
+      }, []);
+    
+    console.log('list', dishes)
+    console.log(cart.dishes)
     console.log(shoppingList)
     let barbra;
 
