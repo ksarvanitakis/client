@@ -8,7 +8,6 @@ interface Chef {
   email: string
   rating: number
   phone: number
-  description: string,
   menu: Menu[]
   address: string
   profileImage: string
@@ -29,7 +28,7 @@ interface Ingre {
 }
 interface Cart {
   user: string
-  chef?: Chef
+  chef: Chef
   booking?: Booking
   totalPrice: number
   totalhours: number

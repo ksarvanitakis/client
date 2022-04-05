@@ -5,11 +5,13 @@ import OrderSummary from '../../components/orderSummary/OrderSummary';
 import Calendar from '../../components/calendar/Calendar';
 import './ChefProfile.scss';
 import ProfileHero from '../../components/profileHero/ProfileHero';
+import CheckoutButton from '../../components/checkoutButton/CheckoutButton';
 
 
 function ChefProfile() {
 
   const chefs = useAppSelector(state => state.chefs)
+
   const { name } = useParams();
   const chef = chefs.find(element => element.name === name) as Chef
   console.log(chef)
@@ -33,6 +35,9 @@ function ChefProfile() {
       <div className='booking-container'>
         <MenuBoard chef={chef} />
         <OrderSummary chef={chef} />
+      </div>
+      <div>
+        <CheckoutButton />
       </div>
     </>
   );

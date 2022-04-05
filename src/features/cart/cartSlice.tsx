@@ -9,10 +9,25 @@ import { createSlice, current } from "@reduxjs/toolkit";
 //     return (await data.json()) as Chef[]
 //   }
 // ) 
-
+const mockChefData = {
+  _id: -1,
+  name: '',
+  description: '',
+  cusine: [],
+  price: 0,
+  travelDistance: 0,
+  email: '',
+  rating: 1,
+  phone: 1,
+  menu:[],
+  address: '',
+  profileImage: '',
+  heroImages: [],
+  bookedDates: [],
+}
 const initialState: Cart = {
   user: '',
-  chef: undefined,
+  chef: mockChefData,
   booking: undefined,
   totalPrice: 0,
   totalhours: 0,
