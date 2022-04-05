@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useAppSelector } from '../../features/hooks';
 import Button from '../button/Button';
 import { useDispatch } from 'react-redux';
-import { updatePrice } from '../../features/cart/cartSlice';
 
 interface CardProps {
   chef: Chef
@@ -35,12 +34,6 @@ function OrderSummary({ chef }: CardProps) {
     else return true
   }
 
-  const setTotalPrice = (totalMinutes: number) => {
-    const totalPrice = Math.floor((totalMinutes / 60) * chef.price);
-    dispatch(updatePrice(totalPrice));
-    return totalPrice;
-  }
-
   return (
     <>
       <section className='summary-container'>
@@ -49,10 +42,10 @@ function OrderSummary({ chef }: CardProps) {
           <div className='summary-container_info_order'>
             <p><span className='summary-container_info_order_Bold-text'>Booked date: </span>{cart.date}</p>
             <p><span className='summary-container_info_order_Bold-text'>Total time: </span>{convertMinToHr(cart.totalhours)} </p>
-            <p><span className='summary-container_info_order_Bold-text'>Total Price:</span> {setTotalPrice(cart.totalhours)}</p>
-            {cart.dishes.map((el: Dishe) => {
+            <p><span className='summary-container_info_order_Bold-text'>Total Price:</span>{cart.totalPrice}</p>
+            {cart.dishes.map((el: Dishe, key) => {
               if (el.serving !== 0) {
-                return <p> {el.name} {el.serving}</p>
+                return <p key={key}> {el.name} {el.serving}</p>
               }
             })}
           </div>

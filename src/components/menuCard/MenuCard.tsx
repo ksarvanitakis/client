@@ -58,8 +58,8 @@ function MenuCard({ dish, id }: dishProps) {
                             <p className='card-header_description'>{dish.description}</p>
                             <button onClick={dropHandler} className="card-header_dropDown">Ingredients</button>
                             <div className='card-header_dropDown--ingredients' style={{ display: displayState ? 'block' : 'none' }}>
-                                {dish.ingredients.map(ingre => {
-                                    return <span> {ingre.name},</span>
+                                {dish.ingredients.map((ingre, key) => {
+                                    return <span key={key}> {ingre.name},</span>
                                 })}
                             </div>
                         </div>

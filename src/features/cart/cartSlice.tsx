@@ -19,7 +19,7 @@ const mockChefData = {
   email: '',
   rating: 1,
   phone: 1,
-  menu:[],
+  menu: [],
   address: '',
   profileImage: '',
   heroImages: [],
@@ -64,22 +64,22 @@ const cartSlice = createSlice({
         }
 
         state.dishes.splice(action.payload.id, 1, updateCart)
-      } else
-        state.dishes.push(action.payload)
+      } else state.dishes.push(action.payload)
 
       let totalTime = 0
       state.dishes.forEach(el => {
         totalTime += el.time
       })
 
-      state.totalhours = totalTime
+      state.totalhours = totalTime;
+
+      const totalPrice = Math.floor((totalTime / 60) * state.chef.price);
+      state.totalPrice = totalPrice;
+
       console.log('dish cart', current(state))
     },
     setSelectedDate(state, action) {
       state.date = action.payload
-    },
-    updatePrice(state, action) {
-      state.totalPrice = action.payload;
     },
     removeDishe(state, action) {
       if (action.payload.serving === 0) {
@@ -92,5 +92,5 @@ const cartSlice = createSlice({
   }
 })
 
-export const { createEmptyCart, setChef, updateDish, setSelectedDate, updatePrice, removeDishe } = cartSlice.actions;
+export const { createEmptyCart, setChef, updateDish, setSelectedDate, removeDishe } = cartSlice.actions;
 export default cartSlice.reducer;
