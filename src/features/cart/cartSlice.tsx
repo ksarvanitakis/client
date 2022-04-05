@@ -1,5 +1,6 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 
+<<<<<<< HEAD
 // const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001';
 
 // export const fetchChefs = createAsyncThunk(
@@ -25,6 +26,8 @@ const mockChefData = {
   heroImages: [],
   bookedDates: [],
 }
+=======
+>>>>>>> feature-css
 const initialState: Cart = {
   user: '',
   chef: mockChefData,
@@ -48,11 +51,9 @@ const cartSlice = createSlice({
       state.chef = action.payload
     },
     updateDish(state, action) {
-
       const addedDish = state.dishes.find(d => d.id === action.payload.id);
 
       if (addedDish) {
-        console.log(state.totalhours)
         let timeCalc;
         if (action.payload.serving === 1) {
           timeCalc = action.payload.time
@@ -60,30 +61,39 @@ const cartSlice = createSlice({
           timeCalc = (action.payload.time - 10) * action.payload.serving
         }
 
-        console.log(timeCalc, 'time for each dish')
         const updateCart = {
           ...action.payload,
           time: timeCalc
         }
+
         state.dishes.splice(action.payload.id, 1, updateCart)
-      } else state.dishes.push(action.payload)
+      } else
+        state.dishes.push(action.payload)
+
       let totalTime = 0
       state.dishes.forEach(el => {
         totalTime += el.time
       })
-      console.log(totalTime)
+
       state.totalhours = totalTime
       console.log('dish cart', current(state))
-
     },
     setSelectedDate(state, action) {
       state.date = action.payload
     },
     updatePrice(state, action) {
       state.totalPrice = action.payload;
+    },
+    removeDishe(state, action) {
+      if (action.payload.serving === 0) {
+        const index = state.dishes.findIndex((ob: any) => {
+          return ob.name === action.payload.name;
+        });
+        state.dishes.splice(index, 1);
+      }
     }
   }
 })
 
-export const { createEmptyCart, setChef, updateDish, setSelectedDate, updatePrice } = cartSlice.actions;
+export const { createEmptyCart, setChef, updateDish, setSelectedDate, updatePrice, removeDishe } = cartSlice.actions;
 export default cartSlice.reducer;

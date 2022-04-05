@@ -14,12 +14,12 @@ function ListingPage() {
 
   return (
     <>
-    <StepsBoard />
-    <div className="landingPage">
-      <Board />
-    </div>
+      <StepsBoard />
+      <div className="landingPage">
+        <Board />
+      </div>
     </>
-    
+
   );
 }
 

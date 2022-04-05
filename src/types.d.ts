@@ -44,4 +44,5 @@ interface Booking {
    name:string
    id:number
    time:number
+   ingredients: Ingre[]
  }

@@ -9,7 +9,7 @@ import CheckoutButton from '../../components/checkoutButton/CheckoutButton';
 
 
 function ChefProfile() {
-
+ 
   const chefs = useAppSelector(state => state.chefs)
 
   const { name } = useParams();

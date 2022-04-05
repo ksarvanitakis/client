@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAppSelector } from '../../features/hooks';
 import { useDispatch } from 'react-redux';
 import './MenuCard.scss';
-import { updateDish } from '../../features/cart/cartSlice';
+import { updateDish, removeDishe } from '../../features/cart/cartSlice';
 
 interface dishProps {
     dish: Menu
@@ -30,7 +30,6 @@ function MenuCard({ dish, id }: dishProps) {
             time: time,
             ingredients: ingredients
         }
-        console.log('chef price', cart.chef?.price);
         dispatch(updateDish(dish))
     }
     const decreaseHandler = (title: string, time: number, ingredients: Ingre[]) => {
@@ -71,7 +70,6 @@ function MenuCard({ dish, id }: dishProps) {
                                 <img className='description-container_image' src={dish.dishImage} alt='dish'></img>
                             </div>
                         </div>
-
                     </div>
                     <div className='button-container'>
                         <button className='button-continer_btn' onClick={() => decreaseHandler(dish.title, dish.time, dish.ingredients)} style={{ border: disableMin ? '1px solid grey' : '' }} disabled={disableMin}>-</button>
