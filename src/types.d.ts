@@ -46,3 +46,8 @@ interface Booking {
    id:number
    time:number
  }
+ interface FooterProps {
+  footer: string,
+  description: string,
+  id: number
+}

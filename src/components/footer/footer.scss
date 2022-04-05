@@ -1,0 +1,31 @@
+@use '../../scss/'as *;
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(82, 80, 80);
+    height: 25vh;
+
+    .footer-container_icon {
+        display: flex;
+        align-items:inherit;
+
+    .footer-container_text {
+        text-align: center;
+        width: 55vw;
+        margin: auto auto;
+        position: relative;
+        z-index: 2;
+        margin-left: 15rem;
+
+        .footer-container_text_des {
+            text-align: center;
+            width: 55vw;
+            margin: auto auto;
+            position: relative;
+            z-index: 2;
+            margin-left: 15rem;
+
+        }
+    }
+}

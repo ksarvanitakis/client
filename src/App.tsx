@@ -9,6 +9,8 @@ import Faq from './pages/faq/Faq';
 import HowItWorks from './pages/howItWorks/HowItWorks';
 import CheckoutPage from './pages/checkoutPage/checkoutPage';
 import BurguerMenu from './components/burguerMenu/BurguerMenu';
+import Footer from './components/footer/Footer';
+
 
 function App() {
   return (
@@ -17,15 +19,18 @@ function App() {
         {window.innerWidth > 400 ? <NavBar /> : <BurguerMenu />}
 
         <Routes>
-          <Route path='/' element={< LandingPage />}/>
-          <Route path='/chefs' element={< ListingPage />}/>
-          <Route path='/chefs/:name' element={< ChefProfile />}/>
-          <Route path='/about' element={<About />}/>
-          <Route path='/faq' element={<Faq/>}/>
-          <Route path='/howitworks' element={<HowItWorks/>}/>
-          <Route path='/chefs/bookingpage' element={<CheckoutPage/>}/>
+          <Route path='/' element={< LandingPage />} />
+          <Route path='/chefs' element={< ListingPage />} />
+          <Route path='/chefs/:name' element={< ChefProfile />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/faq' element={<Faq />} />
+          <Route path='/howitworks' element={<HowItWorks />} />
+          <Route path='/chefs/bookingpage' element={<CheckoutPage />} />
         </Routes>
       </Router>
+      <>
+      <Footer footer={'string'} description={'string'} id={0} />
+      </>
     </div>
   );
 }
