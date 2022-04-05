@@ -16,18 +16,22 @@ function ChefProfile() {
   return (
     <>
       <ProfileHero chef={chef} />
-      <h2>Chef's Profile</h2>
-      <h1>{chef.name}</h1>
-      <img
-        className='card-container__profile__img'
-        src={chef.profileImage} alt='profile'
-        style={{ width: '200px', height: '200px' }}
-      />
+      <div className='header-container'>
+        <div className='header-container__chef-info'>
+          <h1>{chef.name}</h1>
+          <p className='header-container__chef-info__cusine'>{chef.cusine}</p>
+          <p className='header-container__chef-info__price'>{chef.price} SEK/hr</p>
+        </div>
+
+        <img
+          className='header-container__chef-img'
+          src={chef.profileImage} alt='profile'
+          style={{ width: '80px', height: '80px' }}
+        />
+      </div>
+      <Calendar chef={chef} />
       <div className='booking-container'>
         <MenuBoard chef={chef} />
-        <div className='booking-container_cal'>
-          <Calendar chef={chef}/>
-        </div>
         <OrderSummary chef={chef} />
       </div>
     </>

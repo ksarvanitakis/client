@@ -1,6 +1,26 @@
 @use '../../scss/' as *;
-
+.header-container{
+  @include flexDisplay(row);
+  justify-content:center;
+  margin-bottom: 40px;
+  .header-container__chef-info__cusine{
+    font-size: 1rem;
+    color:grey;
+  }
+  .header-container__chef-info__price {
+    font-size: 1rem;
+    color:grey;
+  }
+  .header-container__chef-info{
+    margin:0 20px;
+  }
+  .header-container__chef-img{
+    border-radius: 50%;
+    margin:0 30px;
+  }
+}
 .booking-container {
   @include flexDisplay(row);
   justify-content: space-around;
+  margin-top:30px;
 }

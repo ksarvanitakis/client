@@ -43,29 +43,35 @@ function OrderSummary({ chef }: CardProps) {
 
   return (
     <>
-      <section style={{ border: '2px solid gray', width: '15rem', height: '20rem' }}>
-        <p>Number of dishes: {cart.dishes.length} </p>
-        {cart.dishes.map((el: Dishe) => {
-          return <div>
-            <p>{el.serving}</p>
-            <p>{el.name}</p>
+      <section className='summary-container'>
+        <div className='summary-container_info'>
+          <h1>Order Summary</h1>
+          <div className='summary-container_info_order'>
+            <p><span className='summary-container_info_order_Bold-text'>Booked date: </span>{cart.date}</p>
+            <p><span className='summary-container_info_order_Bold-text'>Total time: </span>{convertMinToHr(cart.totalhours)} </p>
+            <p><span className='summary-container_info_order_Bold-text'>Total Price:</span> {setTotalPrice(cart.totalhours)}</p>
+            {cart.dishes.map((el: Dishe) => {
+              return <p>{el.name} {el.serving}</p>
+
+            })}
           </div>
-        })}
-        <p>Total time:{convertMinToHr(cart.totalhours)} </p>
-        {ableCheckoutBtn(cart.totalhours) ? <p>* You can book chefs for min 5hr and max 6hr</p> : ''}
-        <p>{cart.date}</p>
-        <p>Total Price: {setTotalPrice(cart.totalhours)}</p>
+
+
+          {ableCheckoutBtn(cart.totalhours) ? <p  className='summary-container_info_error-message'>* You can book chef for min 5hr and max 8hr</p> : ''}
+
+
+        </div>
+        <div>
+          <Button
+            className="Btn"
+            btnText="Checkout"
+            handleClick={routeChange}
+            bgColor='#D3D3D3'
+            hoverColor='#D3D3D3'
+            txtColor='#6B7755'
+            disabled={ableCheckoutBtn(cart.totalhours)} />
+        </div>
       </section>
-      <div>
-        <Button
-          className="Btn"
-          btnText="Checkout"
-          handleClick={routeChange}
-          bgColor='#D3D3D3'
-          hoverColor='#D3D3D3'
-          txtColor='#6B7755'
-          disabled={ableCheckoutBtn(cart.totalhours)} />
-      </div>
     </>
   );
 }
