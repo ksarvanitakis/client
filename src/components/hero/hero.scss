@@ -5,9 +5,10 @@
     background-color: $primaryGreen;
     height: 60vh;
 
+
     .hero_text-container {
         text-align: left;
-        width: 55vw;
+
         margin: auto auto;
         position: relative;
         z-index: 2;
@@ -15,18 +16,24 @@
 
         .hero_text-container_bg-box {
             background-color: $lightGreen;
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             z-index: 1;
             position: absolute;
             left: -30px;
-            top: -70px;
+            top: -40px;
         }
 
         .hero_text-container_title {
             font-size: 4em;
             position: relative;
             z-index: 2;
+        }
+
+        .hero_btn {
+            width: 10rem;
+            padding: 2.5rem;
+            font-size: 1.12rem;
         }
 
         .hero_text-container_desc {
@@ -41,13 +48,13 @@
     .hero_image-container {
         position: relative;
         z-index: 2;
-        margin: auto auto;
+        margin: 5rem auto 0rem auto;
         width: 45rem;
 
         .hero_image-container_bg-box {
             background-color: white;
-            width: 33rem;
-            height: 22rem;
+            width: 30rem;
+            height: 20rem;
             position: absolute;
             z-index: 1;
             left: -10px;
@@ -56,11 +63,70 @@
 
         .hero_image-container_image {
             background-color: $secondaryGreen;
-            width: 33rem;
+            width: 31rem;
             position: relative;
             z-index: 2;
             filter: drop-shadow(0 0.1em 0.5em #7f8d64);
+            margin-right: 52px;
         }
+    }
+}
+
+.body {
+    margin: 0rem auto 0rem auto;
+
+    .body_text-container {
+        width: 50%;
+        margin: 0rem auto;
+    }
+
+    .body_text-container_bg-box-start {
+        background-color: $lightBlue;
+        width: 130px;
+        height: 130px;
+        position: relative;
+        top: 5rem;
+        z-index: -1;
+    }
+
+    .body_text-container_title {
+        font-weight: bold;
+        text-align: left;
+        padding-left: 1.2rem;
+        font-size: 2rem;
+    }
+
+    .body_text-container_list {
+        margin-top: 3rem;
+        text-align: left;
+        padding-left: 1.2rem;
+        list-style-type: none;
+    
+        .body_text-container_item {
+            font-size: 1.2rem;
+        }
+    }
+
+    .body_text-container_line {
+        width: 30%;
+        margin-top: 6rem;
+        margin-left: 30rem;
+    }
+
+    .body_text-container_bg-box-end {
+        background-color: $lightGreen;
+        width: 130px;
+        height: 130px;
+        position: relative;
+        left: 36.8rem;
+        bottom: 4rem;
+        z-index: -1;
+    }
+    .steps-board-container-title {
+        font-size: 2rem;
+        background-color: $lightBlue;
+        padding-top: 2rem;
+        padding-right: 37rem
     }
 }
 
@@ -69,7 +135,7 @@
     .hero {
         flex-direction: column-reverse;
         width: 100%;
-        height: 94vh;
+        height: 88vh;
 
         .hero_text-container {
             width: 65%;
@@ -99,9 +165,33 @@
 
             .hero_image-container_image {
                 width: 18rem;
+                margin-right: 0rem;
             }
         }
     }
+
+    .body {
+
+        .body_text-container {
+            width: 80%;
+            margin: 0rem auto;
+        }
+
+        .body_text-container_line {
+            width: 50%;
+            margin-left: 7rem;
+        }
+
+        .body_text-container_bg-box-end {
+            left: 11.2rem;
+            bottom: 4rem;
+        }
+        .steps-board-container-title {
+            width: 100%;
+            padding: 1rem 0rem;
+          }
+    }
+
 }
 
 // css to Ipad Mini
@@ -109,7 +199,7 @@
     .hero {
         flex-direction: column-reverse;
         width: 100%;
-        height: 80vh;
+        height: 70vh;
 
         .hero_text-container {
             width: 80%;
@@ -142,5 +232,14 @@
             }
         }
     }
-}
 
+    .body {
+        .body_text-container_line {
+            width: 30%;
+            margin-left: 24rem;
+        }
+        .body_text-container_bg-box-end {
+            left: 30.1rem;
+        }
+    }
+}
