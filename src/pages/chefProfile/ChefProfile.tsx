@@ -1,20 +1,32 @@
+import store from '../../features/store'
 import { useParams } from 'react-router-dom';
+import { useAppSelector, useAppDispatch } from '../../features/hooks';
+import { fetchChefs } from '../../features/chefs/chefSlice';
 import MenuBoard from '../../components/menuBoard/MenuBoard';
-import { useAppSelector } from '../../features/hooks';
 import OrderSummary from '../../components/orderSummary/OrderSummary';
 import Calendar from '../../components/calendar/Calendar';
-import './ChefProfile.scss';
 import ProfileHero from '../../components/profileHero/ProfileHero';
 import CheckoutButton from '../../components/checkoutButton/CheckoutButton';
-
+import './ChefProfile.scss';
 
 function ChefProfile() {
 
   const chefs = useAppSelector(state => state.chefs)
+  const dispatch = useAppDispatch();
 
   const { name } = useParams();
-  const chef = chefs.find(element => element.name === name) as Chef
-  console.log(chef)
+  const [chef, setChef] = useState(chefs.find(element => element.name === name) as Chef);
+
+  if (!chef) {
+    const getChef = async () => {
+      const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001';
+      const data = await fetch(`${baseUrl}/chefs`);
+      const json = await data.json() as Chef[];
+      const result = json.find(element => element.name === name);
+      setChef(result as Chef);
+    }
+  }
+
   return (
     <>
       <ProfileHero chef={chef} />
