@@ -1,6 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 
-<<<<<<< HEAD
 // const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001';
 
 // export const fetchChefs = createAsyncThunk(
@@ -26,8 +25,6 @@ const mockChefData = {
   heroImages: [],
   bookedDates: [],
 }
-=======
->>>>>>> feature-css
 const initialState: Cart = {
   user: '',
   chef: mockChefData,
