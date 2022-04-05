@@ -8,7 +8,7 @@ import ProfileHero from '../../components/profileHero/ProfileHero';
 
 
 function ChefProfile() {
-
+ 
   const chefs = useAppSelector(state => state.chefs)
   const { name } = useParams();
   const chef = chefs.find(element => element.name === name) as Chef
