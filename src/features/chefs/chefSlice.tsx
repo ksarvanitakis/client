@@ -5,7 +5,7 @@ const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001';
 export const fetchChefs = createAsyncThunk(
   "chefs/fetchChefs",
   async () => {
-    const data = await fetch(`${baseUrl}/chefs`);
+    const data = await fetch(`${baseUrl}/api/chefs`);
     return (await data.json()) as Chef[]
   }
 ) 
