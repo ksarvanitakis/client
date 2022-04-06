@@ -58,3 +58,21 @@
         color: white;
     }
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .footer-container {
+        height: 35vh;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 800) {
+    .footer-container {
+        height: 23vh;
+    }
+ }
+
+ @media only screen and (min-device-width : 480px) and (max-device-width : 1080) {
+    .footer-container {
+        height: 25vh;
+    }
+ }
