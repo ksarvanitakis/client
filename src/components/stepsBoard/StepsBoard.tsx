@@ -19,12 +19,10 @@ function StepsBoard() {
     return (
         <>
             <section className='steps-board-container'>
-                {steps.map((el,index) => {
+                {steps.map((el, index) => {
                     return <StepsCard step={el.step} description={el.description} id={index} key={index} />
                 })}
             </section>
-
-
         </>
     );
 }

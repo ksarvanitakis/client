@@ -23,29 +23,32 @@ const styles = {
     width: '24px'
   },
   bmCross: {
-    background: '#bdc3c7'
+    background: '#373a47'
   },
   bmMenuWrap: {
     position: 'fixed',
     height: '100%'
   },
   bmMenu: {
-    background: 'white',
-    padding: '2.5em 1.5em 0',
-    fontSize: '1.15em'
+    background: '#dbeeb7',
+    padding: '1.5em 0em 1em 0em',
+    fontSize: '1.5em'
   },
   bmMorphShape: {
     fill: '#373a47'
   },
   bmItemList: {
     color: '#b8b7ad',
-    padding: '0.8em',
+    padding: '1em',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start'
   },
   bmItem: {
-    display: 'inline-block'
+    display: 'inline-block',
+    color: '#6B7755',
+    textDecoration: 'none',
+    padding: '0.3em'
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.3)'
@@ -73,32 +76,29 @@ function BurguerMenu() {
 
   return (
     <>
-    
-        <Menu styles={styles}>
-          <Link to='/'>Home</Link>
-          <Link to='/about' >About</Link>
-          <Link to='/howitworks' >How it works</Link>
-          <Link to='/contact'>Contact</Link>
-        </Menu>
-        <div style={stylesDiv}>
-          <img
-            onClick={() => routeChange('/')}
-            className='navBar__logo'
-            src={logo} alt="Logo" 
-            style={stylesImg}/>
-          <Button
-            className="Hero-Btn"
-            btnText="Find your Chef"
-            bgColor='#f9fcf2'
-            hoverColor='#cce39f'
-            txtColor='#6B7755'
-            disabled={false}
-            handleClick={() => routeChange('/chefs')} />
-        </div>
-  
+      <Menu styles={styles}>
+        <Link to='/'>Home</Link>
+        <Link to='/about' >About</Link>
+        <Link to='/howitworks' >How it works</Link>
+        <Link to='/contact'>Contact</Link>
+      </Menu>
+      <div style={stylesDiv}>
+        <img
+          onClick={() => routeChange('/')}
+          className='navBar__logo'
+          src={logo} alt="Logo"
+          style={stylesImg} />
+        <Button
+          className="Hero-Btn"
+          btnText="Find your Chef"
+          bgColor='#f9fcf2'
+          hoverColor='#cce39f'
+          txtColor='#6B7755'
+          disabled={false}
+          handleClick={() => routeChange('/chefs')} />
+      </div>
     </>
   );
-
 }
 
 export default BurguerMenu;
