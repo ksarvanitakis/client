@@ -1,7 +1,5 @@
 interface User {
-  _id: string
-  username: string
-  bookings?: Booking2[]
+  user: string
 }
 
 interface Booking2 {

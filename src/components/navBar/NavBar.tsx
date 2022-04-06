@@ -12,7 +12,7 @@ function NavBar() {
         return navigate(path);
     }
 
-    const LoggedIn = true;
+    const LoggedIn = false;
 
     return (
         <nav className="navBar-container">
