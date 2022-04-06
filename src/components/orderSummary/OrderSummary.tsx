@@ -2,18 +2,14 @@ import './OrderSummary.scss';
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from '../../features/hooks';
 import Button from '../button/Button';
-import { useDispatch } from 'react-redux';
-
 interface CardProps {
   chef: Chef
 }
 
 function OrderSummary({ chef }: CardProps) {
-
   const cart = useAppSelector(state => state.cart);
 
   console.log(cart)
-  const dispatch = useDispatch()
 
   let navigate = useNavigate();
 

@@ -9,7 +9,7 @@ interface Booking2 {
   totalPrice: number
   totalhours: number
   dishes: Dishe[]
-  date:string
+  date: string
 }
 
 interface Chef {
@@ -47,17 +47,23 @@ interface Cart {
   totalPrice: number
   totalhours: number
   dishes: Dishe[]
-  date:string
+  date: string
+  shoppingList: List[]
 }
 interface Booking {
   date: Date
   startTime: number
 }
- interface Dishe {
-   serving:number
-   name:string
-   id:number
-   time:number
-   ingredients: Ingre[]
- }
- 
+interface Dishe {
+  serving: number
+  name: string
+  id: number
+  time: number
+  ingredients: Ingre[]
+}
+interface List {
+  name: string
+  quantity: number
+  unit: string
+}
+

@@ -32,7 +32,8 @@ const initialState: Cart = {
   totalPrice: 0,
   totalhours: 0,
   dishes: [],
-  date: new Date().toLocaleDateString()
+  date: new Date().toLocaleDateString(),
+  shoppingList: []
 };
 
 const cartSlice = createSlice({
@@ -88,9 +89,12 @@ const cartSlice = createSlice({
         });
         state.dishes.splice(index, 1);
       }
+    },
+    updateShoppingList(state, action) {
+      state.shoppingList = action.payload;
     }
   }
 })
 
-export const { createEmptyCart, setChef, updateDish, setSelectedDate, removeDishe } = cartSlice.actions;
+export const { createEmptyCart, setChef, updateDish, setSelectedDate, removeDishe, updateShoppingList } = cartSlice.actions;
 export default cartSlice.reducer;

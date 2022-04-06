@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAppSelector } from '../../features/hooks';
 import { useDispatch } from 'react-redux';
 import './MenuCard.scss';
-import { updateDish, removeDishe } from '../../features/cart/cartSlice';
+import { updateDish } from '../../features/cart/cartSlice';
 
 interface dishProps {
     dish: Menu

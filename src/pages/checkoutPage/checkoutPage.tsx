@@ -1,33 +1,15 @@
 import CheckoutButton from '../../components/checkoutButton/CheckoutButton';
 import { useAppSelector } from '../../features/hooks';
-
+import { updateShoppingList } from '../../features/cart/cartSlice';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 function CheckoutPage() {
     const cart = useAppSelector(state => state.cart);
-
-    console.log('check page', cart)
+    const dispatch = useDispatch();
 
     const shoppingList: Ingre[] = []
-
-    cart.dishes.forEach(el => {
-        el.ingredients.forEach(e => {
-            shoppingList.push({ name: e.name, quantity: e.quantity * el.serving, unit: e.unit })
-        })
-    })
-
-    const ingredientsSummary = shoppingList.reduce((ingredients: Ingre[], currentIngre) => {
-        const index = ingredients.findIndex(v => v.name === currentIngre.name)
-        if (index === -1) {
-            ingredients.push(currentIngre)
-        } else {
-            const newIngre = {
-                ...currentIngre,
-                quantity: ingredients[index].quantity + currentIngre.quantity
-            }
-            ingredients[index] = newIngre;
-        }
-        return ingredients;
-    }, []);
+    let ingredientsSummary: Ingre[] = [];
 
     const convertUnits = () => {
         ingredientsSummary.forEach(el => {
@@ -48,12 +30,38 @@ function CheckoutPage() {
         })
     }
 
-    convertUnits();
+    useEffect(()=> {
+        cart.dishes.forEach(el => {
+            el.ingredients.forEach(e => {
+                shoppingList.push({ name: e.name, quantity: e.quantity * el.serving, unit: e.unit })
+            })
+        })
+    
+        ingredientsSummary = shoppingList.reduce((ingredients: Ingre[], currentIngre) => {
+            const index = ingredients.findIndex(v => v.name === currentIngre.name)
+            if (index === -1) {
+                ingredients.push(currentIngre)
+            } else {
+                const newIngre = {
+                    ...currentIngre,
+                    quantity: ingredients[index].quantity + currentIngre.quantity
+                }
+                ingredients[index] = newIngre;
+            }
+            return ingredients;
+        }, []);
 
+        convertUnits();
+        dispatch(updateShoppingList(ingredientsSummary));
+    
+    }, [])
+
+    console.log('check page', cart)    
+    
     return (
         <>
             <h1>Shopping List</h1>
-            {ingredientsSummary.map((item, index) => {
+            {cart.shoppingList.map((item, index) => {
                 if (item.quantity !== 0) {
                     return <p key={index}>{item.name} {item.quantity} {item.unit}</p>
                 }
