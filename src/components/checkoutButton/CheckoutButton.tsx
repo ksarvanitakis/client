@@ -15,6 +15,7 @@ function CheckoutButton() {
 
 
     async function postBooking() {
+        console.log('i am in the post button')
         const response = await fetch(`${baseUrl}/api/booking`, {
             method: 'POST',
             mode: 'cors',
@@ -25,7 +26,7 @@ function CheckoutButton() {
             },
             body: JSON.stringify(bookingInformation)
         });
-        return response.json();
+        return response.json()
     }
 
     return (
