@@ -5,11 +5,10 @@ import { auth } from '../../index'
 import {
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
-    signOut
-
 } from 'firebase/auth';
 import { upDateUserCredentials } from '../../features/user/userSlice'
 import { useDispatch } from 'react-redux';
+import { changeModalShowState } from '../../features/modal/modalSlice';
 
 
 interface Formprops {
@@ -39,9 +38,9 @@ function Form({ header, buttonTxt, formType }: Formprops) {
                 signInWithEmailAndPassword;
         try {
             const userCredentials = await submitfunction(auth, email, password);
-            console.log(userCredentials.user)
             dispatch(upDateUserCredentials(userCredentials.user.email))
             setErr(false)
+            dispatch(changeModalShowState(false))
         } catch (err) {
             setErr(true)
             console.log(err)

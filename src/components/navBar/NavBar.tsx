@@ -1,16 +1,19 @@
 import './navBar.scss';
 import { HiUserCircle, HiMenu } from 'react-icons/hi';
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate, Link } from "react-router-dom";
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { useAppDispatch } from '../../features/hooks';
+import { auth } from '../../index';
+import { changeModalShowState } from '../../features/modal/modalSlice';
+
 import logo from '../../assets/my-private-chef-logo.png';
 import Button from "../button/Button";
-import { onAuthStateChanged, signOut } from 'firebase/auth'
-import { auth } from '../..';
-import { useState } from 'react';
 
 function NavBar() {
     let navigate = useNavigate();
-    const [loggedIn, setloggedInStatus] = useState(false)
+    const dispatch = useAppDispatch();
+    const [loggedIn, setloggedInStatus] = useState(false);
 
     onAuthStateChanged(auth, user => {
         if (user) {
@@ -72,21 +75,35 @@ function NavBar() {
                             :
                             <>
                                 <p>
-                                    <Link to='/login'>Sign in</Link>
+                                    <Button
+                                        className="Btn"
+                                        btnText="Log in"
+                                        bgColor='#f9fcf2'
+                                        hoverColor='#dbeeb7'
+                                        txtColor='#6B7755'
+                                        disabled={false}
+                                        handleClick={() => {
+                                            dispatch(changeModalShowState({
+                                                show: true,
+                                                type: 'login'
+                                            }))
+                                        }} />
                                 </p>
                                 <p>
-                                    <Link to='/signup'>Sign up</Link>
+                                    <Button
+                                        className="Btn"
+                                        btnText="Sign up"
+                                        bgColor='#f9fcf2'
+                                        hoverColor='#dbeeb7'
+                                        txtColor='#6B7755'
+                                        disabled={false}
+                                        handleClick={() => {
+                                            dispatch(changeModalShowState({
+                                                show: true,
+                                                type: 'signup'
+                                            }))
+                                        }} />
                                 </p>
-                                <Button
-                                    className="Btn"
-                                    btnText="Show Modal"
-                                    bgColor='#f9fcf2'
-                                    hoverColor='#dbeeb7'
-                                    txtColor='#6B7755'
-                                    disabled={false}
-                                    handleClick={() => {
-
-                                    }} />
                             </>
                         }
                     </div>
