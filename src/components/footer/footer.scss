@@ -5,7 +5,7 @@
     position: relative;
     bottom: 0;
     flex-flow: column;
-    margin-top: 1.5rem;
+    margin-top: 5rem;
     background-color: rgb(82, 80, 80);
     height: 32vh;
 
@@ -66,13 +66,13 @@
     }
 }
 
-@media only screen and (min-device-width : 480) and (max-device-width : 800) {
+@media only screen and (min-device-width : 480px) and (max-device-width : 800px) {
     .footer-container {
         height: 23vh;
     }
  }
 
- @media only screen and (min-device-width : 480px) and (max-device-width : 1080) {
+ @media only screen and (min-device-width : 480px) and (max-device-width : 1080px) {
     .footer-container {
         height: 25vh;
     }

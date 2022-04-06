@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setChef } from '../../features/cart/cartSlice';
+import { AiOutlineStar } from 'react-icons/ai';
 
 import './card.scss'
 interface CardProps {

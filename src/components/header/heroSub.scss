@@ -7,7 +7,6 @@
 
     .hero-sub_text-container {
         text-align: left;
-        width: 30vw;
         margin: auto auto;
         position: relative;
         z-index: 2;
@@ -47,18 +46,18 @@
 
         .hero-sub_image-container_bg-box {
             background-color: white;
-            width: 18rem;
-            height: 15rem;
+            width: 16rem;
+            height: 13rem;
             position: absolute;
             z-index: 1;
-            left: 20px;
+            left: 40px;
             top: -20px;
         }
 
         .hero-sub_image-container_image {
             background-color: $secondaryGreen;
-            width: 18rem;
-            height: 15rem;
+            width: 16rem;
+            height: 13rem;
             position: relative;
             z-index: 2;
             filter: drop-shadow(0 0.1em 0.5em #6B7755);
@@ -71,7 +70,7 @@
     .hero-sub {
         flex-direction: column-reverse;
         width: 100%;
-        height: 94vh;
+        height: 72vh;
 
         .hero-sub_text-container {
             width: 65%;
@@ -111,7 +110,7 @@
     .hero-sub {
         flex-direction: column-reverse;
         width: 100%;
-        height: 80vh;
+        height: 72vh;
 
         .hero-sub_text-container {
             width: 80%;
@@ -141,6 +140,7 @@
 
             .hero-sub_image-container_image {
                 width: 30rem;
+                height: 20rem;
             }
         }
     }

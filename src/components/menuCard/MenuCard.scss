@@ -16,6 +16,7 @@
   width:60%;
   flex-wrap: wrap;
   text-align:left;
+  margin-top: 1rem;
 }
 
 .card-header_title_span {
@@ -30,7 +31,7 @@
 
 .description-container {
   @include flexDisplay(column);
-  margin: auto 20px;
+  margin: 3rem 20px 0rem 20px;
   position: relative;
   z-index: 2;
 }
@@ -66,7 +67,7 @@
   background-color: $primaryGreen;
   color: $greenText;
   text-align: center;
-  padding:5px 0px;
+  padding: 1rem 0px;
   cursor: pointer;
   text-align: left;
   border: none;

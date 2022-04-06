@@ -22,7 +22,8 @@ function Footer() {
             </div>
             <div className='footer-container_text_tag'>
                 <span className='footer-container_text_des'>
-                    © 2022 My Private Chef. All rights reserved. Site by The Alien Alliance.</span>
+                    © 2022 My Private Chef. All rights reserved. Site by The Alien Alliance.
+                </span>
             </div>
         </div>
 

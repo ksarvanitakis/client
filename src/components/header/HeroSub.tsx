@@ -1,9 +1,9 @@
 import './heroSub.scss'
 import heroSub from '../../assets/heroSub.png'
 interface Hero {
-    title:string
+    title: string
 }
-const HeroSub = ({title}:Hero) => {
+const HeroSub = ({ title }: Hero) => {
     return (
         <>
             <main className='hero-sub'>
@@ -16,7 +16,7 @@ const HeroSub = ({title}:Hero) => {
                     <img className='hero-sub_image-container_image' src={heroSub} alt='Hero' />
                 </div>
             </main>
-           
+
         </>
     );
 }

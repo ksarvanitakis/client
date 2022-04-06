@@ -50,7 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-datepicker": "^4.3.4",
-    "@types/react-burger-menu": "^2.8.3"
+    "@types/react-burger-menu": "^2.8.3",
+    "@types/react-datepicker": "^4.3.4"
   }
 }

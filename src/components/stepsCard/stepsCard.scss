@@ -1,24 +1,44 @@
-@use '../../scss/' as *;
-.steps-container{
+@use '../../scss/'as *;
+
+
+.steps-container {
     background-color: $orangeButton;
-    width :200px;
+    width: 200px;
     height: 250px;
     padding: 20px;
-    margin:20px;
-    .steps-container_icon{
+    margin: 20px;
+
+
+    .steps-container_icon {
         font-size: 4rem;
-        color:$primaryBlue;
+        color: $primaryBlue;
     }
-    .steps-container_text{
+
+    .steps-container_text {
         .steps-container_text_des {
-            color:$orangeText;
+            color: $orangeText;
         }
     }
+
     .color-green {
-        color:$primaryGreen;
+        color: $primaryGreen;
     }
+
     .color-orange {
-        color:$primaryOrange
+        color: $primaryOrange
     }
 }
 
+.steps-container_small {
+    width: 120px;
+    height: 150px;
+    font-size: 0.8rem;
+
+    .steps-container_icon {
+        font-size: 2rem;
+    }
+}
+  .steps-container-inactive {
+    opacity: 50%;
+    background-color: lightgrey;
+}
