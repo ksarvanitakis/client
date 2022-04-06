@@ -2,7 +2,7 @@
 .header-container{
   @include flexDisplay(row);
   justify-content:center;
-  margin-bottom: 40px;
+  margin: 2rem auto;
   .header-container__chef-info__cusine{
     font-size: 1rem;
     color:grey;
