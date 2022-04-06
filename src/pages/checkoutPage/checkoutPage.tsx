@@ -3,6 +3,7 @@ import { useAppSelector } from '../../features/hooks';
 import { updateShoppingList } from '../../features/cart/cartSlice';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import StepsBoard from '../../components/stepsBoard/StepsBoard';
 
 function CheckoutPage() {
     const cart = useAppSelector(state => state.cart);
@@ -60,6 +61,7 @@ function CheckoutPage() {
     
     return (
         <>
+            <StepsBoard stepActiveIndex={2} small/>
             <h1>Shopping List</h1>
             {cart.shoppingList.map((item, index) => {
                 if (item.quantity !== 0) {
