@@ -4,15 +4,25 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import logo from '../../assets/my-private-chef-logo.png';
 import Button from "../button/Button";
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import { auth } from '../..';
+import { useState } from 'react';
 
 function NavBar() {
     let navigate = useNavigate();
+    const [loggedIn, setloggedInStatus] = useState(false)
+
+    onAuthStateChanged(auth, user => {
+        if (user) {
+            setloggedInStatus(true)
+        } else {
+            setloggedInStatus(false)
+        }
+    })
 
     const routeChange = (path: string) => {
         return navigate(path);
     }
-
-    const LoggedIn = false;
 
     return (
         <nav className="navBar-container">
@@ -39,7 +49,7 @@ function NavBar() {
                     <span className='navbar-user__icon'><HiMenu /></span>
                     <span className='navbar-user__icon'><HiUserCircle /></span>
                     <div className='dropdown-content'>
-                        {LoggedIn ?
+                        {loggedIn ?
                             <>
                                 <p>
                                     <Button
@@ -49,7 +59,10 @@ function NavBar() {
                                         hoverColor='#dbeeb7'
                                         txtColor='#6B7755'
                                         disabled={false}
-                                        handleClick={() => {}}
+                                        handleClick={() => {
+                                            signOut(auth)
+                                            navigate('/')
+                                        }}
                                     />
                                 </p>
                                 <p>

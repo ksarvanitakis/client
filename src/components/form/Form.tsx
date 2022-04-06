@@ -1,7 +1,15 @@
 import './Form.scss';
 import Button from '../button/Button';
 import { useState } from 'react';
-import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '../../index'
+import { auth } from '../../index'
+import {
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    signOut
+
+} from 'firebase/auth';
+import { upDateUserCredentials } from '../../features/user/userSlice'
+import { useDispatch } from 'react-redux';
 
 
 interface Formprops {
@@ -15,6 +23,9 @@ function Form({ header, buttonTxt, formType }: Formprops) {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [err, setErr] = useState(false)
+    const dispatch = useDispatch()
+
 
     const handleClick = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
@@ -26,15 +37,22 @@ function Form({ header, buttonTxt, formType }: Formprops) {
                 createUserWithEmailAndPassword
                 :
                 signInWithEmailAndPassword;
-
-        const userCredentials = await submitfunction(auth, email, password);
-        console.log(userCredentials.user)
+        try {
+            const userCredentials = await submitfunction(auth, email, password);
+            console.log(userCredentials.user)
+            dispatch(upDateUserCredentials(userCredentials.user.email))
+            setErr(false)
+        } catch (err) {
+            setErr(true)
+            console.log(err)
+        }
     }
 
 
     return (
         <div className="form-container">
             <h1>{header}</h1>
+            {err && <h4 style={{ color: 'red' }}>The username or password is incorrect</h4>}
             <form
                 id={formType}
                 className='form' >

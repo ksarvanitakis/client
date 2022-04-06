@@ -14,7 +14,7 @@ const initialState: User = {
     user: ''
 };
 
-const chefSlice = createSlice({
+const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
@@ -24,4 +24,5 @@ const chefSlice = createSlice({
     },
 })
 
+export const { upDateUserCredentials } = userSlice.actions;
 export default userSlice.reducer;

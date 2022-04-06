@@ -7,14 +7,7 @@ import { Provider } from 'react-redux';
 import store from '../src/features/store'
 
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { 
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
-} from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCooaZMh2FO_6uGteqBsDt3ZAQTqWufKHw",
@@ -27,7 +20,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
 ReactDOM.render(
@@ -45,9 +37,5 @@ ReactDOM.render(
 reportWebVitals();
 
 export {
-  auth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
+  auth
 }
