@@ -77,6 +77,16 @@ function NavBar() {
                                 <p>
                                     <Link to='/signup'>Sign up</Link>
                                 </p>
+                                <Button
+                                    className="Btn"
+                                    btnText="Show Modal"
+                                    bgColor='#f9fcf2'
+                                    hoverColor='#dbeeb7'
+                                    txtColor='#6B7755'
+                                    disabled={false}
+                                    handleClick={() => {
+
+                                    }} />
                             </>
                         }
                     </div>

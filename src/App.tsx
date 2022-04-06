@@ -13,6 +13,7 @@ import Footer from './components/footer/Footer';
 import ProfilePage from './pages/profilePage/ProfilePage';
 import LogIn from './pages/login/Login';
 import SignUp from './pages/signup/Signup';
+import Modal from './components/modal/Modal';
 
 function App() {
   const [screenSize, getDimension] = useState({
@@ -37,7 +38,7 @@ function App() {
     <div className="App">
       <Router>
         {screenSize.dynamicWidth > 400 ? <NavBar /> : <BurguerMenu />}
-
+        <Modal />
         <Routes>
           <Route path='/' element={< LandingPage />}/>
           <Route path='/chefs' element={< ListingPage />}/>
