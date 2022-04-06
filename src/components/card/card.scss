@@ -1,7 +1,8 @@
 @use '../../scss/' as *;
 .card-container {
     background-color: $primaryBlue;
-    width:300px;
+    width: 320px;
+    height: 280px;
     margin-top:100px;
     padding:10px;
     justify-self: center;
@@ -32,9 +33,24 @@
     .card-container__text{
         position: relative;
         top:-50px;
+        padding: 0.5rem;
         .card-container__text__cusine{
             color:black;
             font-size: 1.3em;
+        }
+        .card-container__text__chef-desc {
+            margin-top: 0.4rem;
+            text-align: left;
+        }
+        .card-container__rating-price {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        .card-container__text__price {
+            text-align: start;
+            font-weight: bold;
+            margin-top: 1rem;
         }
     }
     .card-container__chef-name{
@@ -46,6 +62,10 @@
         font-weight: 600;
         filter: drop-shadow(0 0.1em 0.5em #6aadc0);
     }
-   
-  
+}
+// css to Ipad Mini
+@media screen and (min-width: 768px) and (max-width:1024px) {
+    .card-container {
+        margin-left: 1.8rem;
+    }
 }
