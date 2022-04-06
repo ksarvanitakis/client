@@ -19,7 +19,6 @@ function ListingPage() {
         <Board />
       </div>
     </>
-
   );
 }
 

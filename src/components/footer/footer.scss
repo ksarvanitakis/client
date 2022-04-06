@@ -1,0 +1,78 @@
+@use '../../scss/'as *;
+
+.footer-container {
+    display: flex;
+    position: relative;
+    flex-flow: column;
+    margin-top: 1.5rem;
+    background-color: rgb(82, 80, 80);
+    height: 32vh;
+
+    .footer-container_img {
+        display: flex;
+        margin: 2.5rem 1rem;
+        justify-content: center;
+        object-fit: cover;
+
+        .footer-container_icon {
+            margin: 0 0.5rem;
+            color: aliceblue;
+            width: 22px;
+            height: auto;
+            size: 60px;
+
+            &:hover {
+                color: rgb(153, 151, 151);
+            }
+        }
+    }
+
+    .footer-container_text {
+        display: flex;
+        justify-content: center;
+
+        .footer-container_text-link {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+
+            &:hover {
+                color: rgb(153, 151, 151);
+            }
+        }
+    }
+
+    .footer-container_text-tag {
+        display: flex;
+    }
+
+    .footer-container_text_des {
+        position: absolute;
+        bottom: 48px;
+        left: 0px;
+        right: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100vw;
+        color: white;
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .footer-container {
+        height: 35vh;
+    }
+}
+
+@media only screen and (min-device-width : 480) and (max-device-width : 800) {
+    .footer-container {
+        height: 23vh;
+    }
+ }
+
+ @media only screen and (min-device-width : 480px) and (max-device-width : 1080) {
+    .footer-container {
+        height: 25vh;
+    }
+ }
