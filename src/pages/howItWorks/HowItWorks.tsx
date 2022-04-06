@@ -1,9 +1,10 @@
+import HeroSub from '../../components/header/HeroSub';
 import StepsBoard from '../../components/stepsBoard/StepsBoard';
 
 function HowItWorks() {
     return (
         <>
-            <h1>How it works</h1>
+            <HeroSub title={'How it works'}/>
             <StepsBoard />
         </>
     );

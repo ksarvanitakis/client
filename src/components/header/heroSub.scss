@@ -1,0 +1,148 @@
+@use '../../scss/'as *;
+
+.hero-sub {
+    display: flex;
+    background-color: $primaryGreen;
+    height: 40vh;
+
+    .hero-sub_text-container {
+        text-align: left;
+        width: 30vw;
+        margin: auto auto;
+        position: relative;
+        z-index: 2;
+        margin-left: 15rem;
+
+        .hero-sub_text-container_bg-box {
+            background-color: $lightGreen;
+            width: 150px;
+            height: 150px;
+            z-index: 1;
+            position: absolute;
+            left: -30px;
+            top: -70px;
+        }
+
+        .hero-sub_text-container_title {
+            font-size: 4em;
+            position: relative;
+            z-index: 2;
+            color: $greenText;
+        }
+
+        .hero-sub_text-container_desc {
+            color: $greenText;
+            width: 450px;
+            font-size: 1.20em;
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    .hero-sub_image-container {
+        position: relative;
+        z-index: 2;
+        margin: auto auto;
+        width: 25rem;
+
+        .hero-sub_image-container_bg-box {
+            background-color: white;
+            width: 18rem;
+            height: 15rem;
+            position: absolute;
+            z-index: 1;
+            left: 20px;
+            top: -20px;
+        }
+
+        .hero-sub_image-container_image {
+            background-color: $secondaryGreen;
+            width: 18rem;
+            height: 15rem;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0.1em 0.5em #6B7755);
+        }
+    }
+}
+
+// Iphone 12 Pro
+@media screen and (min-width:390px) and (max-width:890px) {
+    .hero-sub {
+        flex-direction: column-reverse;
+        width: 100%;
+        height: 94vh;
+
+        .hero-sub_text-container {
+            width: 65%;
+            margin-top: 4em;
+            margin-left: 5rem;
+            font-size: 0.8em;
+
+            .hero-sub_text-container_desc {
+                width: 100%;
+            }
+
+            .hero-sub_text-container_bg-box {
+                top: -1rem;
+            }
+        }
+
+        .hero-sub_image-container {
+            width: 100%;
+            margin-bottom: 1em;
+
+            .hero-sub_image-container_bg-box {
+                width: 20rem;
+                height: 11rem;
+                left: 3.1rem;
+                top: -2rem;
+            }
+
+            .hero-sub_image-container_image {
+                width: 18rem;
+            }
+        }
+    }
+}
+
+// css to Ipad Mini
+@media screen and (min-width: 768px) and (max-width:1024px) {
+    .hero-sub {
+        flex-direction: column-reverse;
+        width: 100%;
+        height: 80vh;
+
+        .hero-sub_text-container {
+            width: 80%;
+            margin-top: 2em;
+            font-size: 0.9em;
+
+            .hero-sub_text-container_desc {
+                width: 100%;
+                font-size: 1.5em;
+            }
+
+            .hero-sub_text-container_bg-box {
+                top: -1rem;
+            }
+        }
+
+        .hero-sub_image-container {
+            width: 60%;
+            margin: 5rem 3rem 3rem 3rem;
+
+            .hero-sub_image-container_bg-box {
+                width: 30rem;
+                height: 18rem;
+                left: 4rem;
+                top: -2rem;
+            }
+
+            .hero-sub_image-container_image {
+                width: 30rem;
+            }
+        }
+    }
+}
+

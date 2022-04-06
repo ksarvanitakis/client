@@ -1,6 +1,7 @@
+import HeroSub from "../../components/header/HeroSub";
 function About() {
     return (
-        <h1>About us</h1>
+        <HeroSub title={'About us'} />
       );
 }
 

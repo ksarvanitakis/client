@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { fetchChefs } from '../../features/chefs/chefSlice';
 import { useAppDispatch } from '../../features/hooks';
 import StepsBoard from '../../components/stepsBoard/StepsBoard';
+import HeroSub from '../../components/header/HeroSub';
 
 function ListingPage() {
 
@@ -14,6 +15,7 @@ function ListingPage() {
 
   return (
     <>
+      <HeroSub title={'Booking'}/>
       <StepsBoard />
       <div className="landingPage">
         <Board />
