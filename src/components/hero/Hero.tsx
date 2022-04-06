@@ -31,7 +31,7 @@ function Hero() {
                     <img className='hero_image-container_image' src={heroImage} alt='Hero' />
                 </div>
             </main>
-            <body className='body'>
+            <div className='body'>
                 <div className='body_text-container'>
                     <div className='body_text-container_bg-box-start'></div>
                     <h2 className='body_text-container_title'>Sound familiar? If so, this experience is for you.</h2>
@@ -46,7 +46,7 @@ function Hero() {
                     <div className='body_text-container_bg-box-end'></div>
                 </div>
                 <h2 className='steps-board-container-title'>How it works</h2>
-            </body>
+            </div>
             <StepsBoard />
         </>
     );

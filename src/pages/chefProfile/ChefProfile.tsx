@@ -5,11 +5,9 @@ import OrderSummary from '../../components/orderSummary/OrderSummary';
 import Calendar from '../../components/calendar/Calendar';
 import './ChefProfile.scss';
 import ProfileHero from '../../components/profileHero/ProfileHero';
-import CheckoutButton from '../../components/checkoutButton/CheckoutButton';
-
 
 function ChefProfile() {
- 
+
   const chefs = useAppSelector(state => state.chefs)
 
   const { name } = useParams();
