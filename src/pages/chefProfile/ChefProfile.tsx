@@ -36,9 +36,6 @@ function ChefProfile() {
         <MenuBoard chef={chef} />
         <OrderSummary chef={chef} />
       </div>
-      <div>
-        <CheckoutButton />
-      </div>
     </>
   );
 }

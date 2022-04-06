@@ -1,4 +1,6 @@
+import CheckoutButton from '../../components/checkoutButton/CheckoutButton';
 import { useAppSelector } from '../../features/hooks';
+
 
 function CheckoutPage() {
     const cart = useAppSelector(state => state.cart);
@@ -56,6 +58,7 @@ function CheckoutPage() {
                     return <p key={index}>{item.name} {item.quantity} {item.unit}</p>
                 }
             })}
+            <CheckoutButton />
         </>
     );
 }
