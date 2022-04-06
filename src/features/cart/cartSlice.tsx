@@ -26,7 +26,7 @@ const mockChefData = {
   bookedDates: [],
 }
 const initialState: Cart = {
-  user: '',
+  user: 'Mr.Bean',
   chef: mockChefData,
   booking: undefined,
   totalPrice: 0,
