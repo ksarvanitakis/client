@@ -2,7 +2,9 @@ import Form from "../../components/form/Form";
 
 function SignUp() {
     return (
-        <Form header='Sign up' formType='signup-form' />
+        <div style={{height: '70vh'}}>      
+            <Form header='Sign up' buttonTxt='Sign up' formType='signup-form' />
+        </div>
     );
 }
 

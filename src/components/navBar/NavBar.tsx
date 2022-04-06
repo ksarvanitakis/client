@@ -1,18 +1,31 @@
 import './navBar.scss';
 import { HiUserCircle, HiMenu } from 'react-icons/hi';
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate, Link } from "react-router-dom";
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { useAppDispatch } from '../../features/hooks';
+import { auth } from '../../index';
+import { changeModalShowState } from '../../features/modal/modalSlice';
+
 import logo from '../../assets/my-private-chef-logo.png';
 import Button from "../button/Button";
 
 function NavBar() {
     let navigate = useNavigate();
+    const dispatch = useAppDispatch();
+    const [loggedIn, setloggedInStatus] = useState(false);
+
+    onAuthStateChanged(auth, user => {
+        if (user) {
+            setloggedInStatus(true)
+        } else {
+            setloggedInStatus(false)
+        }
+    })
 
     const routeChange = (path: string) => {
         return navigate(path);
     }
-
-    const LoggedIn = true;
 
     return (
         <nav className="navBar-container">
@@ -39,7 +52,7 @@ function NavBar() {
                     <span className='navbar-user__icon'><HiMenu /></span>
                     <span className='navbar-user__icon'><HiUserCircle /></span>
                     <div className='dropdown-content'>
-                        {LoggedIn ?
+                        {loggedIn ?
                             <>
                                 <p>
                                     <Button
@@ -49,7 +62,10 @@ function NavBar() {
                                         hoverColor='#dbeeb7'
                                         txtColor='#6B7755'
                                         disabled={false}
-                                        handleClick={() => {}}
+                                        handleClick={() => {
+                                            signOut(auth)
+                                            navigate('/')
+                                        }}
                                     />
                                 </p>
                                 <p>
@@ -59,10 +75,34 @@ function NavBar() {
                             :
                             <>
                                 <p>
-                                    <Link to='/login'>Sign in</Link>
+                                    <Button
+                                        className="Btn"
+                                        btnText="Log in"
+                                        bgColor='#f9fcf2'
+                                        hoverColor='#dbeeb7'
+                                        txtColor='#6B7755'
+                                        disabled={false}
+                                        handleClick={() => {
+                                            dispatch(changeModalShowState({
+                                                show: true,
+                                                type: 'login'
+                                            }))
+                                        }} />
                                 </p>
                                 <p>
-                                    <Link to='/signup'>Sign up</Link>
+                                    <Button
+                                        className="Btn"
+                                        btnText="Sign up"
+                                        bgColor='#f9fcf2'
+                                        hoverColor='#dbeeb7'
+                                        txtColor='#6B7755'
+                                        disabled={false}
+                                        handleClick={() => {
+                                            dispatch(changeModalShowState({
+                                                show: true,
+                                                type: 'signup'
+                                            }))
+                                        }} />
                                 </p>
                             </>
                         }

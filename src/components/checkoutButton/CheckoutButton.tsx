@@ -13,9 +13,7 @@ function CheckoutButton() {
         chef: cart.chef.name,
     }
 
-
     async function postBooking() {
-        console.log('i am in the post button')
         const response = await fetch(`${baseUrl}/api/booking`, {
             method: 'POST',
             mode: 'cors',
@@ -32,7 +30,7 @@ function CheckoutButton() {
     return (
         <Button
             className="Checkout-Btn"
-            btnText="Book"
+            btnText="Confirm & Checkout"
             handleClick={postBooking}
             bgColor='#f9fcf2'
             hoverColor='#dbeeb7'

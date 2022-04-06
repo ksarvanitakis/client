@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useAppSelector } from './features/hooks';
 import NavBar from './components/navBar/NavBar';
 import ChefProfile from './pages/chefProfile/ChefProfile';
 import LandingPage from './pages/landingPage/Landing'
@@ -13,8 +14,11 @@ import Footer from './components/footer/Footer';
 import ProfilePage from './pages/profilePage/ProfilePage';
 import LogIn from './pages/login/Login';
 import SignUp from './pages/signup/Signup';
+import Modal from './components/modal/Modal';
+import store from './features/store';
 
 function App() {
+
   const [screenSize, getDimension] = useState({
     dynamicWidth: window.innerWidth,
     dynamicHeight: window.innerHeight
@@ -25,7 +29,7 @@ function App() {
       dynamicWidth: window.innerWidth,
       dynamicHeight: window.innerHeight
     })
-  }
+  };
 
   useEffect(() => {
     window.addEventListener('resize', setDimension);
@@ -33,11 +37,16 @@ function App() {
         window.removeEventListener('resize', setDimension);
     })
   }, [screenSize])
+
+  const { show, type } = useAppSelector((state) => state.modal)
+  const [dummyState, setDummyState] = useState(null);
+  store.subscribe(() => setDummyState(null))
+
   return (
     <div className="App">
       <Router>
         {screenSize.dynamicWidth > 400 ? <NavBar /> : <BurguerMenu />}
-
+        <Modal show={show} type={type} />
         <Routes>
           <Route path='/' element={< LandingPage />}/>
           <Route path='/chefs' element={< ListingPage />}/>
