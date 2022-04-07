@@ -6,6 +6,7 @@ import Calendar from '../../components/calendar/Calendar';
 import './ChefProfile.scss';
 import ProfileHero from '../../components/profileHero/ProfileHero';
 import StepsBoard from '../../components/stepsBoard/StepsBoard';
+import HeroSub from '../../components/header/HeroSub';
 
 function ChefProfile() {
 
@@ -16,10 +17,8 @@ function ChefProfile() {
   console.log(chef)
   return (
     <>
+    <HeroSub title='Customize your meal'/>
       <ProfileHero chef={chef} />
-
-      <StepsBoard stepActiveIndex={1} small/>
-
       <div className='header-container'>
         <div className='header-container__chef-info'>
           <h1>{chef.name}</h1>

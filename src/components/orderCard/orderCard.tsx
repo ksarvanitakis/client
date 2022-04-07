@@ -52,7 +52,7 @@ const OrderCard = ({ name, time, date, price, shopping,dishes }: Order) => {
                     }
                 })}
                 </div>
-                <div className='order-summary__bg-box-buttom'></div>
+               
                
             </section>
 
