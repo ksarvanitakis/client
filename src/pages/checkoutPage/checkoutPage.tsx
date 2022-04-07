@@ -64,7 +64,6 @@ function CheckoutPage() {
         <>
             <HeroSub title={'Checkout'} />
             <OrderCard name={cart.chef.name} time={cart.totalhours} date={cart.date} price={cart.totalPrice} shopping={cart.shoppingList} dishes={cart.dishes}/>
-        
             <CheckoutButton />
         </>
     );

@@ -1,10 +1,11 @@
 import { useAppSelector } from '../../features/hooks';
 import Button from '../button/Button';
-
+import { useNavigate } from "react-router-dom";
 const baseUrl = process.env.REACT_APP_SERVER_URL || 'http://localhost:3001';
 
 
 function CheckoutButton() {
+    let navigate = useNavigate();
 
     const cart = useAppSelector(state => state.cart)
 
@@ -12,8 +13,12 @@ function CheckoutButton() {
         ...cart,
         chef: cart.chef.name,
     }
-
+// const route = ()=>{
+//     let path = `order`;
+//     navigate(path);
+// }
     async function postBooking() {
+        
         const response = await fetch(`${baseUrl}/api/booking`, {
             method: 'POST',
             mode: 'cors',
@@ -24,6 +29,10 @@ function CheckoutButton() {
             },
             body: JSON.stringify(bookingInformation)
         });
+       
+       
+
+    
         return response.json()
     }
 
