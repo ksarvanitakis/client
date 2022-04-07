@@ -18,6 +18,7 @@ const route = ()=>{
     navigate(path);
 }
     async function postBooking() {
+        console.log(bookingInformation)
         route()
         const response = await fetch(`${baseUrl}/api/booking`, {
             method: 'POST',
