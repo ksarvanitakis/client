@@ -13,6 +13,7 @@
     .modal-content {
         width: 500px;
         background-color: #fff;
+        padding: 1em;
     }
 
     .modal-header {
@@ -27,6 +28,22 @@
         padding: 10px;
         border-top: 1px solid #eee;
         border-bottom: 1px solid #eee;
+
+        input {
+            display: block;
+            font-size: large;
+            padding: 0.8em 0;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #6B7755;
+        }
+    }
+
+    .modal-footer {
+
+        .button {
+            font-size: large;
+        }
     }
 }
 
