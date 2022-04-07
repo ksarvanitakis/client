@@ -61,7 +61,7 @@ function Modal(props: ModalProps) {
         console.log('submitting from....')
 
         const submitfunction =
-            props.type === 'signup-form' ?
+            props.type === 'signup' ?
                 createUserWithEmailAndPassword
                 :
                 signInWithEmailAndPassword;
