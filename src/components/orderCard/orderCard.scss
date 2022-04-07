@@ -1,0 +1,51 @@
+@use '../../scss/' as *;
+.order-summary {
+    position: relative;
+    padding:10px;
+    margin: 0 auto;
+    margin-top: 80px;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    width:50vw;
+    margin-bottom: 40px;
+    .order-summary__bg-box {
+        width:120px;
+        height:120px;
+        background-color: $secondaryBlue;
+        position: absolute;
+        top:-60px;
+        left:50px;
+
+    }
+    .order-summary__shopping{
+        text-align: left;
+        padding-bottom: 50px;
+        margin: 0 auto;
+        width:80%;
+        .order-summary__shopping__item{
+          border-bottom: 1px solid $primaryBlue;
+          padding:8px;
+        }
+    }
+    .order-summary__bg-box-buttom{
+        width:120px;
+        height:120px;
+        background-color: $secondaryOrange;
+        position: absolute;
+        top:760px;
+        left:580px;
+    }
+    .order-summary__menu{
+        width:250px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+}
+.order-summary-container {
+    @include flexDisplay(row);
+    justify-content:center;
+    margin:30px;
+    .order-summary-container__info{
+        margin :0 15px;
+    }
+}

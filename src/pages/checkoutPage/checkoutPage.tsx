@@ -4,7 +4,8 @@ import { updateShoppingList } from '../../features/cart/cartSlice';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import StepsBoard from '../../components/stepsBoard/StepsBoard';
-
+import OrderCard from '../../components/orderCard/orderCard';
+import HeroSub from '../../components/header/HeroSub';
 function CheckoutPage() {
     const cart = useAppSelector(state => state.cart);
     const dispatch = useDispatch();
@@ -61,13 +62,9 @@ function CheckoutPage() {
     
     return (
         <>
-            <StepsBoard stepActiveIndex={2} small/>
-            <h1>Shopping List</h1>
-            {cart.shoppingList.map((item, index) => {
-                if (item.quantity !== 0) {
-                    return <p key={index}>{item.name} {item.quantity} {item.unit}</p>
-                }
-            })}
+            <HeroSub title={'Checkout'} />
+            <OrderCard name={cart.chef.name} time={cart.totalhours} date={cart.date} price={cart.totalPrice} shopping={cart.shoppingList} dishes={cart.dishes}/>
+        
             <CheckoutButton />
         </>
     );

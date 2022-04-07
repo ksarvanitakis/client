@@ -32,8 +32,8 @@ function CheckoutButton() {
             className="Checkout-Btn"
             btnText="Confirm & Checkout"
             handleClick={postBooking}
-            bgColor='#f9fcf2'
-            hoverColor='#dbeeb7'
+            bgColor='#dbeeb7'
+            hoverColor='#f9fcf2'
             disabled={false}
             txtColor='#6B7755' />
     );
