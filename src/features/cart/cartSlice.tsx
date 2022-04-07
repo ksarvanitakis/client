@@ -26,7 +26,7 @@ const mockChefData = {
   bookedDates: [],
 }
 const initialState: Cart = {
-  user: 'Mr.Bean',
+  user: '',
   chef: mockChefData,
   booking: undefined,
   totalPrice: 0,
@@ -47,6 +47,10 @@ const cartSlice = createSlice({
     setChef(state, action) {
       console.log('action', action)
       state.chef = action.payload
+    },
+    setUser(state, action) {
+      console.log('action', action)
+      state.user = action.payload
     },
     updateDish(state, action) {
       const addedDish = state.dishes.find(d => d.id === action.payload.id);
@@ -96,5 +100,5 @@ const cartSlice = createSlice({
   }
 })
 
-export const { createEmptyCart, setChef, updateDish, setSelectedDate, removeDishe, updateShoppingList } = cartSlice.actions;
+export const { createEmptyCart, setChef, setUser, updateDish, setSelectedDate, removeDishe, updateShoppingList } = cartSlice.actions;
 export default cartSlice.reducer;

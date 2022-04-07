@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'fire
 import { auth } from '../../index';
 import { changeModalShowState } from '../../features/modal/modalSlice';
 import { upDateUserCredentials } from '../../features/user/userSlice';
+import { setUser } from '../../features/cart/cartSlice'
 import Button from '../button/Button';
 
 interface ModalProps {
@@ -67,6 +68,7 @@ function Modal(props: ModalProps) {
         try {
             const userCredentials = await submitfunction(auth, email, password);
             dispatch(upDateUserCredentials(userCredentials.user.email))
+            dispatch(setUser(userCredentials.user.email))
             setErr(false)
             dispatch(changeModalShowState(false))
         } catch (err) {
