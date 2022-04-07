@@ -16,6 +16,7 @@ import LogIn from './pages/login/Login';
 import SignUp from './pages/signup/Signup';
 import Modal from './components/modal/Modal';
 import store from './features/store';
+import BookingDone from './pages/Booking-done/bookingDone';
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
           <Route path='/login' element={<LogIn/>}/>
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/profile' element={<ProfilePage/>}/>
+          <Route path='/chefs/bookingpage/order' element={<BookingDone/>}/>
         </Routes>
         <Footer />
       </Router>
