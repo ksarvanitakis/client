@@ -3,6 +3,8 @@ import { slide as Menu } from 'react-burger-menu';
 import logo from '../../assets/my-private-chef-logo.png';
 import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
+import { useAppDispatch } from '../../features/hooks';
+import { changeModalShowState } from '../../features/modal/modalSlice';
 
 const styles = {
   bmBurgerButton: {
@@ -69,6 +71,7 @@ const stylesDiv = {
 
 function BurguerMenu() {
   let navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const routeChange = (path: string) => {
     return navigate(path);
@@ -81,6 +84,33 @@ function BurguerMenu() {
         <Link to='/about' >About</Link>
         <Link to='/howitworks' >How it works</Link>
         <Link to='/contact'>Contact</Link>
+        <br/>
+        <Button
+          className="Btn"
+          btnText="Log in"
+          bgColor='#f9fcf2'
+          hoverColor='#dbeeb7'
+          txtColor='#6B7755'
+          disabled={false}
+          handleClick={() => {
+            dispatch(changeModalShowState({
+              show: true,
+              type: 'login'
+            }))
+          }} />
+        <Button
+          className="Btn"
+          btnText="Sign up"
+          bgColor='#f9fcf2'
+          hoverColor='#dbeeb7'
+          txtColor='#6B7755'
+          disabled={false}
+          handleClick={() => {
+            dispatch(changeModalShowState({
+              show: true,
+              type: 'signup'
+            }))
+          }} />
       </Menu>
       <div style={stylesDiv}>
         <img
