@@ -13,12 +13,12 @@ function CheckoutButton() {
         ...cart,
         chef: cart.chef.name,
     }
-// const route = ()=>{
-//     let path = `order`;
-//     navigate(path);
-// }
+const route = ()=>{
+    let path = `order`;
+    navigate(path);
+}
     async function postBooking() {
-        
+        route()
         const response = await fetch(`${baseUrl}/api/booking`, {
             method: 'POST',
             mode: 'cors',
